@@ -1,19 +1,524 @@
-export default {
-  async fetch(request) {
-    const incomingUrl = new URL(request.url);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Park Omer | Software, Middleware & Data Platform Engineer</title>
+  <meta name="description" content="Personal career website for David Park Omer — senior software, middleware, SaaS, and data platform engineer with 20+ years of experience." />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --bg2:#111831;
+      --panel:#151f3f;
+      --panel2:#0f1730;
+      --text:#eef2ff;
+      --muted:#aab5d6;
+      --line:rgba(255,255,255,.12);
+      --accent:#5aa7ff;
+      --accent2:#7ef0c9;
+      --shadow:0 14px 40px rgba(0,0,0,.32);
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(90,167,255,.22), transparent 28%),
+        radial-gradient(circle at top right, rgba(126,240,201,.14), transparent 24%),
+        linear-gradient(180deg, var(--bg), #070b17 100%);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .wrap{width:min(calc(100% - 32px), var(--max)); margin:0 auto}
+    .nav{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(14px);
+      background:rgba(7,11,23,.72);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:14px 0;
+    }
+    .brand{font-weight:800; letter-spacing:.2px}
+    .brand small{display:block; color:var(--muted); font-weight:600; font-size:.78rem}
+    .nav-links{display:flex; gap:18px; flex-wrap:wrap}
+    .nav-links a{
+      text-decoration:none; color:var(--muted); font-size:.95rem;
+    }
+    .nav-links a:hover{color:var(--text)}
+    .hero{
+      padding:78px 0 42px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:28px;
+      align-items:stretch;
+    }
+    .hero-card, .panel{
+      background:linear-gradient(180deg, rgba(21,31,63,.9), rgba(10,17,35,.9));
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+    .hero-card{padding:40px}
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      color:var(--accent2); font-weight:700; font-size:.88rem;
+      letter-spacing:.04em; text-transform:uppercase;
+      margin-bottom:14px;
+    }
+    .eyebrow::before{
+      content:""; width:10px; height:10px; border-radius:50%;
+      background:linear-gradient(180deg, var(--accent2), var(--accent));
+      box-shadow:0 0 0 6px rgba(126,240,201,.12);
+    }
+    h1{
+      font-size:clamp(2.3rem, 5vw, 4.2rem);
+      line-height:1.05;
+      margin:0 0 18px;
+      letter-spacing:-.03em;
+    }
+    .hero p{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:1.05rem;
+      max-width:68ch;
+    }
+    .cta-row{
+      display:flex; flex-wrap:wrap; gap:14px; margin-top:24px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      min-height:48px; padding:0 18px;
+      border-radius:14px; text-decoration:none; font-weight:700;
+      border:1px solid transparent;
+      transition:transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:linear-gradient(135deg, var(--accent), #7fc6ff);
+      color:#08111f;
+    }
+    .btn-secondary{
+      background:rgba(255,255,255,.03);
+      border-color:var(--line);
+      color:var(--text);
+    }
+    .hero-side{
+      padding:24px;
+      display:grid;
+      gap:16px;
+      align-content:start;
+    }
+    .metric{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+    }
+    .metric strong{
+      display:block; font-size:1.7rem; line-height:1.1; margin-bottom:6px;
+    }
+    .metric span{color:var(--muted); font-size:.95rem}
+    section{padding:26px 0}
+    h2{
+      font-size:clamp(1.65rem, 3vw, 2.4rem);
+      margin:0 0 10px;
+      letter-spacing:-.02em;
+    }
+    .section-lead{
+      color:var(--muted);
+      max-width:70ch;
+      margin:0 0 24px;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(18,27,54,.94), rgba(10,16,33,.94));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      height:100%;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.15rem;
+    }
+    .card p{margin:0; color:var(--muted)}
+    .chips{display:flex; flex-wrap:wrap; gap:10px}
+    .chip{
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:#dbe5ff; font-size:.92rem;
+    }
+    .timeline{
+      display:grid; gap:16px;
+    }
+    .job{
+      display:grid;
+      grid-template-columns:190px 1fr;
+      gap:18px;
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(20,30,59,.9), rgba(9,14,28,.9));
+      box-shadow:var(--shadow);
+    }
+    .job .dates{
+      color:var(--accent2);
+      font-weight:700;
+      font-size:.98rem;
+    }
+    .job h3{margin:0 0 8px; font-size:1.18rem}
+    .job h3 span{
+      color:var(--muted); font-weight:600;
+    }
+    .job ul{
+      margin:0; padding-left:18px; color:var(--muted);
+    }
+    .job li + li{margin-top:6px}
+    .resume-card .btn{margin-top:16px}
+    .contact{
+      text-align:center;
+      padding:40px 24px;
+    }
+    .contact p{
+      color:var(--muted);
+      max-width:56ch;
+      margin:0 auto 22px;
+    }
+    .footer{
+      color:var(--muted);
+      font-size:.92rem;
+      padding:28px 0 44px;
+      text-align:center;
+    }
+    .small{
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    @media (max-width: 980px){
+      .hero-grid, .grid-3, .grid-2{grid-template-columns:1fr}
+      .job{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .hero-card{padding:28px}
+      .nav-inner{align-items:flex-start; flex-direction:column}
+      .nav-links{gap:12px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        David Park Omer
+        <small>Software • Middleware • Data Platforms</small>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#focus">Focus Areas</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#resumes">Resumes</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-    // Target Wix site
-    const targetUrl = new URL(request.url);
-    targetUrl.protocol = "https:";
-    targetUrl.hostname = "etalsolutions.wixstudio.com";
-    targetUrl.pathname = "/david";
-    targetUrl.search = incomingUrl.search;
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-card">
+        <div class="eyebrow">Open to Senior Engineering Opportunities</div>
+        <h1>Senior software, middleware, and data platform engineer.</h1>
+        <p>
+          I bring 20+ years of experience designing and supporting enterprise applications, integration platforms, and data-driven systems. My background spans scalable SaaS platforms, .NET backend development, SQL Server performance, middleware architecture, and distributed system integration.
+        </p>
+        <p>
+          I’m strongest where software, data, and operations meet: building reliable backend services, improving system performance, diagnosing complex production issues, and designing clean integration patterns that hold up under real-world load.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:david_1428@outlook.com">Contact Me</a>
+          <a class="btn btn-secondary" href="#resumes">View Resume Paths</a>
+        </div>
+      </div>
 
-    // Copy request headers
-    const requestHeaders = new Headers(request.headers);
-    requestHeaders.set("host", "etalsolutions.wixstudio.com");
-    requestHeaders.set("x-forwarded-host", incomingUrl.hostname);
-    requestHeaders.set("x-forwarded-proto", "https");
+      <aside class="hero-side hero-card">
+        <div class="metric">
+          <strong>20+ years</strong>
+          <span>Building enterprise applications, integration systems, and data platforms</span>
+        </div>
+        <div class="metric">
+          <strong>.NET • SQL Server • APIs</strong>
+          <span>Hands-on across backend services, database performance, and integration layers</span>
+        </div>
+        <div class="metric">
+          <strong>SaaS • Middleware • Data</strong>
+          <span>Positioned for platform engineering, middleware development, and senior data-centric roles</span>
+        </div>
+      </aside>
+    </div>
+  </header>
 
-    const proxyRequest
-  };
+  <main>
+    <section id="about">
+      <div class="wrap">
+        <h2>What I bring</h2>
+        <p class="section-lead">
+          My experience combines deep technical delivery with strong architectural thinking. I have built reusable platform components, supported mission-critical enterprise systems, improved batch processes to near real-time data flow, and helped teams troubleshoot and stabilize production environments.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Platform-minded engineering</h3>
+            <p>I design systems for reuse, maintainability, and clean scaling across multiple environments and customers.</p>
+          </div>
+          <div class="card">
+            <h3>Performance and diagnosis</h3>
+            <p>I’m comfortable finding bottlenecks in SQL, data flow, and application behavior, then turning those findings into durable fixes.</p>
+          </div>
+          <div class="card">
+            <h3>Integration depth</h3>
+            <p>I’ve worked across APIs, messaging platforms, middleware frameworks, SAP-connected systems, and regulated healthcare integrations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="focus">
+      <div class="wrap">
+        <h2>Primary focus areas</h2>
+        <p class="section-lead">
+          These three tracks represent the strongest themes across my resume portfolio.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>SaaS & backend platforms</h3>
+            <p>
+              Backend-focused full stack and platform engineering using C#/.NET, relational data models, RESTful APIs, reusable services, reporting workflows, and scalable multi-tenant architecture.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Middleware & enterprise integration</h3>
+            <p>
+              Enterprise system integration, API connectivity, SQL-based data pipelines, messaging patterns, middleware architecture, and production troubleshooting across distributed systems.
+            </p>
+          </div>
+          <div class="card">
+            <h3>SQL Server & data platforms</h3>
+            <p>
+              Query tuning, indexing strategy, relational database design, analytics layers, reporting workloads, and platform reliability across on-premise and cloud database environments.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Selected impact</h2>
+        <p class="section-lead">A few examples pulled directly from my resume set.</p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Near real-time data flow</h3>
+            <p>
+              Reduced processing latency from 24+ hour batch cycles to near real-time by improving integration patterns, event flow, and SQL-based pipeline behavior.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Multi-tenant SaaS architecture</h3>
+            <p>
+              Led architecture and development of a QA auditing SaaS platform serving thousands of users, including work supporting companies such as WinCo Foods.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Large-scale interface delivery</h3>
+            <p>
+              Built and supported 400+ enterprise interfaces across healthcare, government, and commercial systems using middleware and standards-based integration patterns.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Modernization without disruption</h3>
+            <p>
+              Improved reporting, analytics, and operational workflows while protecting transactional systems through clean data access layers and durable database design.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <h2>Experience highlights</h2>
+        <p class="section-lead">
+          A condensed view of the roles most relevant to software, middleware, and data platform positions.
+        </p>
+        <div class="timeline">
+          <article class="job">
+            <div class="dates">2024 – 2026</div>
+            <div>
+              <h3>Et al Solutions LLC <span>— Consultant / Senior Consultant</span></h3>
+              <ul>
+                <li>Designed and implemented .NET applications, backend services, integrations, and reporting workflows for small business platforms.</li>
+                <li>Connected relational databases and external REST APIs using reusable integration components.</li>
+                <li>Applied automation and AI-assisted workflows to streamline development and operations.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="dates">2015 – 2024</div>
+            <div>
+              <h3>Project Consulting Services, Inc. (via TEKsystems) <span>— Senior Consultant</span></h3>
+              <ul>
+                <li>Built middleware integrating multiple vendor platforms with a SQL-based data warehouse.</li>
+                <li>Improved processing latency from 24+ hours to near real-time.</li>
+                <li>Established SQL coding standards, query design patterns, and performance tuning practices across large-scale relational systems.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="dates">2006 – 2015</div>
+            <div>
+              <h3>Steton Technology Group <span>— Lead Architect</span></h3>
+              <ul>
+                <li>Led development and operation of a multi-tenant QA auditing SaaS platform supporting thousands of users.</li>
+                <li>Built analytics and reporting layers that protected transactional performance.</li>
+                <li>Led cloud platform initiatives in Azure and AWS to improve scalability, availability, and reliability.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="dates">2002 – 2006</div>
+            <div>
+              <h3>SeeBeyond <span>— Senior Consultant</span></h3>
+              <ul>
+                <li>Delivered enterprise integration solutions across healthcare, government, and commercial environments.</li>
+                <li>Built and supported 400+ interfaces across distributed applications.</li>
+                <li>Implemented secure standards-based integrations including HL7 in regulated settings.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="dates">2001 – 2002</div>
+            <div>
+              <h3>Computer Sciences Corporation <span>— Senior Consultant</span></h3>
+              <ul>
+                <li>Designed and implemented SAP integration components.</li>
+                <li>Contributed integration architecture guidance for NASA’s IFMP SAP program.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="dates">1999 – 2001</div>
+            <div>
+              <h3>Fluor Corporation <span>— EAI Team Lead</span></h3>
+              <ul>
+                <li>Led legacy-to-SAP integration initiatives using message-based architectures.</li>
+                <li>Evaluated and implemented enterprise messaging technologies including IBM MQSeries.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <h2>Core skills</h2>
+        <p class="section-lead">A representative skills view assembled from the three resumes.</p>
+        <div class="card">
+          <div class="chips">
+            <span class="chip">C# / .NET</span>
+            <span class="chip">SQL Server</span>
+            <span class="chip">Azure SQL</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">Middleware Architecture</span>
+            <span class="chip">System Integration</span>
+            <span class="chip">Event-Driven Data Flow</span>
+            <span class="chip">Query Tuning</span>
+            <span class="chip">Index Optimization</span>
+            <span class="chip">Relational Databases</span>
+            <span class="chip">Reporting & Analytics</span>
+            <span class="chip">Azure</span>
+            <span class="chip">AWS</span>
+            <span class="chip">Java</span>
+            <span class="chip">SAP Integration</span>
+            <span class="chip">HL7</span>
+            <span class="chip">IBM MQSeries</span>
+            <span class="chip">Enterprise Troubleshooting</span>
+            <span class="chip">SaaS Platforms</span>
+            <span class="chip">Distributed Systems</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resumes">
+      <div class="wrap">
+        <h2>Resume paths</h2>
+        <p class="section-lead">
+          I maintain targeted versions of my resume based on the role. In Wix, upload your PDF or DOCX files to the Media Manager, then replace the <span class="small">#</span> links below with your Wix document URLs.
+        </p>
+        <div class="grid-3">
+          <div class="card resume-card">
+            <h3>SaaS / Platform Engineering</h3>
+            <p>Best for senior backend, platform, API, cloud, and multi-tenant SaaS roles.</p>
+            <a class="btn btn-secondary" href="#">Attach SaaS Resume</a>
+          </div>
+          <div class="card resume-card">
+            <h3>Middleware / Integration</h3>
+            <p>Best for enterprise integration, middleware, API, messaging, and systems connectivity roles.</p>
+            <a class="btn btn-secondary" href="#">Attach Middleware Resume</a>
+          </div>
+          <div class="card resume-card">
+            <h3>SQL Server / Data Platform</h3>
+            <p>Best for SQL Server, database performance, data platform, and database engineering roles.</p>
+            <a class="btn btn-secondary" href="#">Attach DBA Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="panel contact">
+          <h2>Let’s connect</h2>
+          <p>
+            I’m based in Long Beach, California and interested in senior-level opportunities across software engineering, middleware and integration, database performance, and data platform work.
+          </p>
+          <div class="cta-row" style="justify-content:center">
+            <a class="btn btn-primary" href="mailto:david_1428@outlook.com">david_1428@outlook.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    © <span id="year"></span> David Park Omer. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
