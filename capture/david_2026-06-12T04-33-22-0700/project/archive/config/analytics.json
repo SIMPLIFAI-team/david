@@ -1,0 +1,4 @@
+{
+  "source": "../config.generated.json",
+  "notes": "Retained as a compatibility placeholder. Active browser configuration is generated from the selected Portmason env file into config.generated.json."
+}

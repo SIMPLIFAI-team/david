@@ -1,0 +1,50 @@
+[
+  {
+    "id": "multi-tenant-qa-auditing-mobile-data-collection",
+    "tag": "SaaS / Mobile Case Study",
+    "title": "Multi-tenant QA auditing and mobile data collection",
+    "summary": "A recreated SaaS architecture model based on high-volume quality auditing, cross-platform HTML5 mobile data collection, tenant-aware workflows, and operational reporting.",
+    "highlights": [
+      "HTML5 cross-platform mobile data collection model",
+      "Tenant-aware application and audit workflow concepts",
+      "Logical reporting layer over transactional data to reduce reporting overhead"
+    ],
+    "url": "case-studies/multi-tenant-qa-auditing-mobile-data-collection.html"
+  },
+  {
+    "id": "message-driven-enterprise-integration",
+    "tag": "Integration Case Study",
+    "title": "Message-driven enterprise integration",
+    "summary": "A mock enterprise integration pattern based on legacy-to-modern system connectivity, message-based architecture, interface contracts, runtime configuration, retry handling, and operational monitoring.",
+    "highlights": [
+      "Message-level configuration propagation so runtime behavior travels with the message",
+      "Canonical message structure, routing, replay, and observability model",
+      "Legacy, SAP-connected, HL7, and API-based endpoint patterns"
+    ],
+    "url": "case-studies/message-driven-enterprise-integration.html"
+  },
+  {
+    "id": "replayable-vendor-api-ingestion-reporting-layer",
+    "tag": "Data / API Case Study",
+    "title": "Replayable vendor API ingestion and reporting layer",
+    "summary": "A generalized data platform pattern showing efficient vendor API consumption, SharePoint Online caching, multi-tenant integration, and reporting design without sacrificing recovery or auditability.",
+    "highlights": [
+      "Idempotent API consumer that reduces repetitive object pulls and supports replay",
+      "Performance-tuned SQL query shapes for reporting and integration workloads",
+      "Multi-tenant integration and reporting layer across vendor and operational data"
+    ],
+    "url": "case-studies/replayable-vendor-api-ingestion-reporting-layer.html"
+  },
+  {
+    "id": "web-based-purchasing-accounts-payable-system",
+    "tag": "Business Systems Case Study",
+    "title": "Web-based purchasing and accounts payable system",
+    "summary": "A recreated early-career business systems example showing how operational workflows can be translated into practical internal applications for purchasing, accounts payable, vendor coordination, and fulfillment operations.",
+    "highlights": [
+      "Web-based purchasing and A/P workflow model",
+      "Vendor access for purchase order management and delivery coordination",
+      "Foundation for later architecture, integration, and operational systems work"
+    ],
+    "url": "case-studies/web-based-purchasing-accounts-payable-system.html"
+  }
+]
