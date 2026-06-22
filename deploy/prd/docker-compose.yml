@@ -10,7 +10,9 @@ services:
       - .env.generated
     working_dir: ${CONTAINER_ROOT}
     volumes:
-      - .:${CONTAINER_ROOT}
+      - type: bind
+        source: .
+        target: ${CONTAINER_ROOT}
     environment:
       REPO_ROOT: ${CONTAINER_ROOT}
       SITE_ROOT: ${CONTAINER_ROOT}/www

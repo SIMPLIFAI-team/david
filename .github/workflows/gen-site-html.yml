@@ -21,6 +21,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Verify Compose bind-mount contract
+        run: tests/verify-compose-contract
+
       - name: Run Foundation and visual-contract tests
         run: |
           docker compose --profile tools run --rm --no-deps toolbox \
