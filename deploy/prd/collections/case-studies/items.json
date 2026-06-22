@@ -1,0 +1,93 @@
+[
+  {
+    "id": "multi-tenant-qa-auditing-mobile-data-collection",
+    "slug": "multi-tenant-qa-auditing-mobile-data-collection",
+    "status": "published",
+    "sortOrder": 1,
+    "label": "SaaS / Mobile Case Study",
+    "title": "Multi-tenant QA auditing and mobile data collection",
+    "summary": "A recreated SaaS architecture model based on high-volume quality auditing, cross-platform HTML5 mobile data collection, tenant-aware workflows, and operational reporting.",
+    "highlights": [
+      "HTML5 cross-platform mobile data collection model",
+      "Tenant-aware application and audit workflow concepts",
+      "Reporting overhead reduction from logical reporting layer"
+    ],
+    "primaryAction": {
+      "label": "Read case study",
+      "href": "case-studies/multi-tenant-qa-auditing-mobile-data-collection.html"
+    }
+  },
+  {
+    "id": "replayable-vendor-api-ingestion-reporting-layer",
+    "slug": "replayable-vendor-api-ingestion-reporting-layer",
+    "status": "published",
+    "sortOrder": 2,
+    "label": "Data / API Case Study",
+    "title": "Replayable vendor API ingestion and reporting layer",
+    "summary": "A generalized data platform pattern showing efficient vendor API consumption, SharePoint Online caching, multi-tenant integration, and reporting design without sacrificing recovery or auditability.",
+    "highlights": [
+      "Reduced repetitive object pulls with idempotent API consumer",
+      "Performance-tuned query shapes for reporting and ingestion workloads",
+      "Multi-tenant integration and reporting layer across vendor and ops data"
+    ],
+    "primaryAction": {
+      "label": "Read case study",
+      "href": "case-studies/replayable-vendor-api-ingestion-reporting-layer.html"
+    }
+  },
+  {
+    "id": "corporate-website-and-portmason-platform-experience",
+    "slug": "corporate-website-and-portmason-platform-experience",
+    "status": "published",
+    "sortOrder": 3,
+    "label": "Web / Platform Case Study",
+    "title": "Corporate website and Portmason platform experience",
+    "summary": "A modern corporate website built as a fast, data-driven static experience that unifies services, brands, thought leadership, and the Portmason Platform.",
+    "highlights": [
+      "Self-registering catalog architecture for services, brands, promotions, and platform content",
+      "Containerized local development with repeatable Portmason setup, rendering, and deployment workflows",
+      "High-performance static delivery through GitHub Pages with modular content, responsive navigation, and environment-driven configuration"
+    ],
+    "primaryAction": {
+      "label": "Read case study",
+      "href": "case-studies/corporate-website-and-portmason-platform-experience.html"
+    },
+    "summaryHtml": "A modern corporate website built as a fast, data-driven static experience that unifies services, brands, thought leadership, and the Portmason Platform. &nbsp;&nbsp;<a style=\"font-weight:700;color:#eef2ff\" href=\"https://www.etal.solutions\" target=\"_blank\" rel=\"noopener noreferrer\">www.etal.solutions</a>"
+  },
+  {
+    "id": "message-driven-enterprise-integration",
+    "slug": "message-driven-enterprise-integration",
+    "status": "hidden",
+    "sortOrder": 4,
+    "label": "Integration Case Study",
+    "title": "Message-driven enterprise integration",
+    "summary": "A mock enterprise integration pattern based on legacy-to-modern system connectivity, message-based architecture, interface contracts, runtime configuration, retry handling, and operational monitoring.",
+    "highlights": [
+      "Message-level configuration propagation so runtime behavior travels with the message",
+      "Canonical message structure, routing, replay, and observability model",
+      "Legacy, SAP-connected, HL7, and API-based endpoint patterns"
+    ],
+    "primaryAction": {
+      "label": "Read case study",
+      "href": "case-studies/message-driven-enterprise-integration.html"
+    }
+  },
+  {
+    "id": "web-based-purchasing-accounts-payable-system",
+    "slug": "web-based-purchasing-accounts-payable-system",
+    "status": "hidden",
+    "sortOrder": 5,
+    "label": "Business Systems Case Study",
+    "title": "Web-based purchasing and accounts payable system",
+    "summary": "A recreated early-career business systems example showing how operational workflows can be translated into practical internal applications for purchasing, accounts payable, vendor coordination, and fulfillment operations.",
+    "highlights": [
+      "Web-based purchasing and A/P workflow model",
+      "Vendor access for purchase order management and delivery coordination",
+      "Foundation for later architecture, integration, and operational systems work"
+    ],
+    "primaryAction": {
+      "label": "Read case study",
+      "href": "case-studies/web-based-purchasing-accounts-payable-system.html"
+    }
+  }
+]

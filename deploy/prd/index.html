@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <!-- PM:TRACKING-CONSENT-PART1 -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.googletagmanager.com; script-src-elem 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.google.com; frame-src https://www.googletagmanager.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.googletagmanager.com https://static.cloudflareinsights.com; script-src-elem 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.google.com https://cloudflareinsights.com; frame-src https://www.googletagmanager.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:;">
 
     <!-- Cookie consent defaults must load before Google Tag Manager. -->
     <script>
@@ -35,6 +35,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/cookie-consent-overrides.css" />
+<!-- PM:COLLECTION-STYLES -->
+    <link rel="stylesheet" href="collections/_system/collection.css" />
+    <link rel="stylesheet" href="collections/case-studies/styles.css" />
+    <link rel="stylesheet" href="collections/resumes/styles.css" />
+<!-- /PM:COLLECTION-STYLES -->
 </head>
 <body>
 <!-- PM:TRACKING-CONSENT-PART2 -->
@@ -187,14 +192,15 @@ and <span class="brand-ref">Steton</span>.
       </div>
     </section>
 
-    <section id="portfolio">
+<!-- PM:COLLECTION-CASE-STUDIES -->
+    <section id="portfolio" data-collection data-collection-id="case-studies" data-collection-mode="catalog">
       <div class="wrap">
         <h2>Portfolio case studies</h2>
         <p class="section-lead">
           Generalized and anonymized write-ups of some of my work.
         </p>
 
-        <div id="portfolio-grid" class="grid-2" data-source="content/case-studies.json">
+        <div id="portfolio-grid" class="grid-2">
           <div class="card">
             <span class="portfolio-tag">SaaS / Mobile Case Study</span>
             <h3>Multi-tenant QA auditing and mobile data collection</h3>
@@ -202,24 +208,31 @@ and <span class="brand-ref">Steton</span>.
                 <ul>
                   <li>HTML5 cross-platform mobile data collection model</li>
                   <li>Tenant-aware application and audit workflow concepts</li>
-                  <li>Logical reporting layer over transactional data to reduce reporting overhead</li>
+                  <li>Reporting overhead reduction from logical reporting layer</li>
                 </ul>
-            <div class="case-study-actions">
-              <a class="btn btn-secondary" href="case-studies/multi-tenant-qa-auditing-mobile-data-collection.html">Read case study</a>
-            </div>
+            <div class="case-study-actions"><a class="btn btn-secondary" href="case-studies/multi-tenant-qa-auditing-mobile-data-collection.html">Read case study</a></div>
           </div>
           <div class="card">
-            <span class="portfolio-tag">Business Systems Case Study</span>
-            <h3>Web-based purchasing and accounts payable system</h3>
-            <p>A recreated early-career business systems example showing how operational workflows can be translated into practical internal applications for purchasing, accounts payable, vendor coordination, and fulfillment operations.</p>
+            <span class="portfolio-tag">Data / API Case Study</span>
+            <h3>Replayable vendor API ingestion and reporting layer</h3>
+            <p>A generalized data platform pattern showing efficient vendor API consumption, SharePoint Online caching, multi-tenant integration, and reporting design without sacrificing recovery or auditability.</p>
                 <ul>
-                  <li>Web-based purchasing and A/P workflow model</li>
-                  <li>Vendor access for purchase order management and delivery coordination</li>
-                  <li>Foundation for later architecture, integration, and operational systems work</li>
+                  <li>Reduced repetitive object pulls with idempotent API consumer</li>
+                  <li>Performance-tuned query shapes for reporting and ingestion workloads</li>
+                  <li>Multi-tenant integration and reporting layer across vendor and ops data</li>
                 </ul>
-            <div class="case-study-actions">
-              <a class="btn btn-secondary" href="case-studies/web-based-purchasing-accounts-payable-system.html">Read case study</a>
-            </div>
+            <div class="case-study-actions"><a class="btn btn-secondary" href="case-studies/replayable-vendor-api-ingestion-reporting-layer.html">Read case study</a></div>
+          </div>
+          <div class="card">
+            <span class="portfolio-tag">Web / Platform Case Study</span>
+            <h3>Corporate website and Portmason platform experience</h3>
+            <p>A modern corporate website built as a fast, data-driven static experience that unifies services, brands, thought leadership, and the Portmason Platform. &nbsp;&nbsp;<a style="font-weight:700;color:#eef2ff" href="https://www.etal.solutions" target="_blank" rel="noopener noreferrer">www.etal.solutions</a></p>
+                <ul>
+                  <li>Self-registering catalog architecture for services, brands, promotions, and platform content</li>
+                  <li>Containerized local development with repeatable Portmason setup, rendering, and deployment workflows</li>
+                  <li>High-performance static delivery through GitHub Pages with modular content, responsive navigation, and environment-driven configuration</li>
+                </ul>
+            <div class="case-study-actions"><a class="btn btn-secondary" href="case-studies/corporate-website-and-portmason-platform-experience.html">Read case study</a></div>
           </div>
         </div>
 
@@ -228,6 +241,7 @@ and <span class="brand-ref">Steton</span>.
         </div>
       </div>
     </section>
+<!-- /PM:COLLECTION-CASE-STUDIES -->
 
     <section id="experience">
 
@@ -353,13 +367,15 @@ and <span class="brand-ref">Steton</span>.
       </div>
     </section>
 
-    <section id="resumes">
+<!-- PM:COLLECTION-RESUMES -->
+    <section id="resumes" data-collection data-collection-id="resumes" data-collection-mode="catalog">
       <div class="wrap">
         <h2>Targeted resumes</h2>
         <p class="section-lead">
           I maintain targeted versions of my resume based on the role.
         </p>
-        <div class="grid-4">
+
+        <div id="resume-grid" class="grid-4">
           <div class="card resume-card">
             <h3>SaaS/Platform Engineer</h3>
             <p>Best for senior backend, platform, API, cloud, and multi-tenant SaaS roles.</p>
@@ -378,6 +394,7 @@ and <span class="brand-ref">Steton</span>.
         </div>
       </div>
     </section>
+<!-- /PM:COLLECTION-RESUMES -->
 
     <section id="contact">
       <div class="wrap">
@@ -405,15 +422,6 @@ and <span class="brand-ref">Steton</span>.
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    function escapeHtml(value) {
-      return String(value ?? "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll("\"", "&quot;")
-        .replaceAll("'", "&#039;");
-    }
-
     function getHashTarget() {
       if (!window.location.hash) return null;
 
@@ -433,128 +441,6 @@ and <span class="brand-ref">Steton</span>.
       });
     }
 
-    const fallbackCaseStudies = [
-      {
-            "id": "multi-tenant-qa-auditing-mobile-data-collection",
-            "tag": "SaaS / Mobile Case Study",
-            "title": "Multi-tenant QA auditing and mobile data collection",
-            "summary": "A recreated SaaS architecture model based on high-volume quality auditing, cross-platform HTML5 mobile data collection, tenant-aware workflows, and operational reporting.",
-            "highlights": [
-                  "HTML5 cross-platform mobile data collection model",
-                  "Tenant-aware application and audit workflow concepts",
-                  "Logical reporting layer over transactional data to reduce reporting overhead"
-            ],
-            "url": "case-studies/multi-tenant-qa-auditing-mobile-data-collection.html"
-      },
-      {
-            "id": "message-driven-enterprise-integration",
-            "tag": "Integration Case Study",
-            "title": "Message-driven enterprise integration",
-            "summary": "A mock enterprise integration pattern based on legacy-to-modern system connectivity, message-based architecture, interface contracts, runtime configuration, retry handling, and operational monitoring.",
-            "highlights": [
-                  "Message-level configuration propagation so runtime behavior travels with the message",
-                  "Canonical message structure, routing, replay, and observability model",
-                  "Legacy, SAP-connected, HL7, and API-based endpoint patterns"
-            ],
-            "url": "case-studies/message-driven-enterprise-integration.html"
-      },
-      {
-            "id": "replayable-vendor-api-ingestion-reporting-layer",
-            "tag": "Data / API Case Study",
-            "title": "Replayable vendor API ingestion and reporting layer",
-            "summary": "A generalized data platform pattern showing efficient vendor API consumption, SharePoint Online caching, multi-tenant integration, and reporting design without sacrificing recovery or auditability.",
-            "highlights": [
-                  "Idempotent API consumer that reduces repetitive object pulls and supports replay",
-                  "Performance-tuned SQL query shapes for reporting and integration workloads",
-                  "Multi-tenant integration and reporting layer across vendor and operational data"
-            ],
-            "url": "case-studies/replayable-vendor-api-ingestion-reporting-layer.html"
-      },
-      {
-            "id": "web-based-purchasing-accounts-payable-system",
-            "tag": "Business Systems Case Study",
-            "title": "Web-based purchasing and accounts payable system",
-            "summary": "A recreated early-career business systems example showing how operational workflows can be translated into practical internal applications for purchasing, accounts payable, vendor coordination, and fulfillment operations.",
-            "highlights": [
-                  "Web-based purchasing and A/P workflow model",
-                  "Vendor access for purchase order management and delivery coordination",
-                  "Foundation for later architecture, integration, and operational systems work"
-            ],
-            "url": "case-studies/web-based-purchasing-accounts-payable-system.html"
-      }
-];
-
-function renderCaseStudies(caseStudies) {
-  const grid = document.getElementById("portfolio-grid");
-  if (!grid) return;
-
-  grid.innerHTML = caseStudies.map((item) => {
-    const highlights = Array.isArray(item.highlights)
-      ? item.highlights
-      : [];
-
-    /*
-     * summaryHtml is trusted repository-controlled inline markup.
-     * Plain summary remains escaped as the safe fallback.
-     */
-    const summary = (
-      typeof item.summaryHtml === "string" &&
-      item.summaryHtml.trim()
-    )
-      ? item.summaryHtml
-      : escapeHtml(item.summary);
-
-    return `
-      <div class="card">
-        <span class="portfolio-tag">${escapeHtml(item.tag)}</span>
-        <h3>${escapeHtml(item.title)}</h3>
-        <p>${summary}</p>
-        ${highlights.length ? `
-          <ul>
-            ${highlights
-              .map((highlight) => `<li>${escapeHtml(highlight)}</li>`)
-              .join("")}
-          </ul>
-        ` : ""}
-        <div class="case-study-actions">
-          <a
-            class="btn btn-secondary"
-            href="${escapeHtml(item.url)}"
-          >Read case study</a>
-        </div>
-      </div>
-    `;
-  }).join("");
-}
-
-    async function loadCaseStudies() {
-      const grid = document.getElementById("portfolio-grid");
-      if (!grid) return;
-
-      if (window.location.protocol === "file:") {
-        renderCaseStudies(fallbackCaseStudies);
-        scrollToCurrentHash();
-        return;
-      }
-
-      const source = grid.getAttribute("data-source") || "content/case-studies.json";
-      grid.setAttribute("aria-busy", "true");
-
-      try {
-        const response = await fetch(source, { cache: "no-store" });
-        if (!response.ok) throw new Error(`Unable to load ${source}`);
-
-        const caseStudies = await response.json();
-        renderCaseStudies(caseStudies);
-      } catch (error) {
-        renderCaseStudies(fallbackCaseStudies);
-        console.error(error);
-      } finally {
-        grid.removeAttribute("aria-busy");
-        scrollToCurrentHash();
-      }
-    }
-
     window.addEventListener("hashchange", () => {
       setTimeout(scrollToCurrentHash, 25);
     });
@@ -563,12 +449,12 @@ function renderCaseStudies(caseStudies) {
       setTimeout(scrollToCurrentHash, 100);
       setTimeout(scrollToCurrentHash, 350);
     });
-
-    loadCaseStudies();
   </script>
 
   <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
   <script src="assets/js/cookie-consent.js"></script>
 
+<!-- PM:COLLECTION-SCRIPTS -->
+<!-- /PM:COLLECTION-SCRIPTS -->
 </body>
 </html>

@@ -1,0 +1,24 @@
+{
+  "$schema": "../_system/collection.schema.json",
+  "id": "resumes",
+  "mode": "catalog",
+  "layout": "card-grid",
+  "interactive": false,
+  "dataFile": "items.json",
+  "styleFile": "styles.css",
+  "regions": {
+    "section": "COLLECTION-RESUMES"
+  },
+  "presentation": {
+    "theme": "light",
+    "kicker": "Resumes",
+    "sectionId": "resumes",
+    "title": "Targeted resumes",
+    "summary": "I maintain targeted versions of my resume based on the role.",
+    "contentId": "resume-grid",
+    "gridClass": "grid-4",
+    "cardClass": "card resume-card",
+    "actionContainerClass": "centered",
+    "buttonClass": "btn btn-secondary"
+  }
+}

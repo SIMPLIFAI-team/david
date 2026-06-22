@@ -1,0 +1,104 @@
+[
+  {
+    "id": "saas-platform-engineer",
+    "slug": "saas-platform-engineer",
+    "status": "published",
+    "sortOrder": 1,
+    "title": "SaaS/Platform Engineer",
+    "summary": "Best for senior backend, platform, API, cloud, and multi-tenant SaaS roles.",
+    "primaryAction": {
+      "label": "SaaS Resume",
+      "href": "resumes/SaaS_resume.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/SaaS_resume.docx"
+    }
+  },
+  {
+    "id": "sql-server-data-platform",
+    "slug": "sql-server-data-platform",
+    "status": "published",
+    "sortOrder": 2,
+    "title": "SQL Server/Data Platform",
+    "summary": "Best for SQL Server, database performance, data platform, and database engineering roles.",
+    "primaryAction": {
+      "label": "DBA Resume",
+      "href": "resumes/dba_resume.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/dba_resume.docx"
+    }
+  },
+  {
+    "id": "it-network-administrator",
+    "slug": "it-network-administrator",
+    "status": "published",
+    "sortOrder": 3,
+    "title": "IT/Network Administrator",
+    "summary": "Best for IT support, network administration, and systems engineering roles.",
+    "primaryAction": {
+      "label": "IT Resume",
+      "href": "resumes/IT_Networking_resume.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/IT_Networking_resume.docx"
+    }
+  },
+  {
+    "id": "cloud-architect",
+    "slug": "cloud-architect",
+    "status": "hidden",
+    "sortOrder": 4,
+    "title": "Cloud Architect",
+    "summary": "Cloud architecture, modernization, infrastructure, and platform roles.",
+    "primaryAction": {
+      "label": "Cloud Architect Resume",
+      "href": "resumes/cloud_architect.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/cloud_architect.docx"
+    }
+  },
+  {
+    "id": "middleware-integration",
+    "slug": "middleware-integration",
+    "status": "hidden",
+    "sortOrder": 5,
+    "title": "Middleware/Integration",
+    "summary": "Enterprise integration, middleware, messaging, and API roles.",
+    "primaryAction": {
+      "label": "Middleware Resume",
+      "href": "resumes/middleware_resume.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/middleware_resume.docx"
+    }
+  },
+  {
+    "id": "web-developer",
+    "slug": "web-developer",
+    "status": "hidden",
+    "sortOrder": 6,
+    "title": "Web Developer",
+    "summary": "Web application, frontend, backend, and full-stack development roles.",
+    "primaryAction": {
+      "label": "Web Developer Resume",
+      "href": "resumes/web_developer_resume.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/web_developer_resume.docx"
+    }
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resume Collection Item",
+  "type": "object",
+  "required": ["id", "published", "order", "title", "description", "pdf", "docx", "buttonLabel"],
+  "properties": {
+    "id": {"type": "string"},
+    "published": {"type": "boolean"},
+    "order": {"type": "integer", "minimum": 1},
+    "title": {"type": "string"},
+    "description": {"type": "string"},
+    "pdf": {"type": "string"},
+    "docx": {"type": "string"},
+    "buttonLabel": {"type": "string"}
+  },
+  "additionalProperties": false
+}

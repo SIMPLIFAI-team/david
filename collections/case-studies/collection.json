@@ -1,0 +1,27 @@
+{
+  "$schema": "../_system/collection.schema.json",
+  "id": "case-studies",
+  "mode": "catalog",
+  "layout": "card-grid",
+  "interactive": false,
+  "dataFile": "items.json",
+  "styleFile": "styles.css",
+  "regions": {
+    "section": "COLLECTION-CASE-STUDIES"
+  },
+  "presentation": {
+    "theme": "light",
+    "kicker": "Portfolio",
+    "sectionId": "portfolio",
+    "title": "Portfolio case studies",
+    "summary": "Generalized and anonymized write-ups of some of my work.",
+    "note": "Portfolio write-ups demonstrate architecture, design approach, and technical communication. They do not contain proprietary client systems, code, data, diagrams, or confidential implementation details.",
+    "contentId": "portfolio-grid",
+    "gridClass": "grid-2",
+    "cardClass": "card",
+    "labelClass": "portfolio-tag",
+    "actionContainerClass": "case-study-actions",
+    "buttonClass": "btn btn-secondary",
+    "noteClass": "portfolio-note"
+  }
+}

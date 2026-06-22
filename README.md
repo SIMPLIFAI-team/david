@@ -54,12 +54,12 @@ cd ../..
 
 The native setup refreshes the repository-root `portmason/` stage. GitHub Actions mounts and consumes that committed full share.
 
-## Legacy root cleanup
+## GitHub Pages root compatibility
 
-After the GitHub Pages Actions deployment is verified, remove the obsolete root-level public-site mirror repeatably with:
+`www/` remains authoritative. Until the repository is confirmed to be served exclusively from the Pages Actions artifact, refresh the repository-root compatibility mirror before syncing:
 
 ```bash
-bin/cleanup-root
+bin/sync-pages-root
 ```
 
-The shared implementation contract is documented in `docs/PORTMASON_SITE_ALIGNMENT.md`.
+The mirror prevents a branch-based Pages configuration from serving stale HTML without its CSS, Collections assets, or current CSP. The standard Pages workflow still publishes `deploy/prd/www`.
