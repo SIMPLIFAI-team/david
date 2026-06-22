@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- PM:TRACKING-CONSENT-PART1 -->
+    <!-- Google Consent Mode defaults: deny optional analytics until consent is granted. -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied',
+          'functionality_storage': 'granted',
+          'security_storage': 'granted',
+          'wait_for_update': 500
+        });
+      </script>
+  
+      <!-- Google Tag Manager -->
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PJFK7G8X');
+      </script>
+      <!-- End Google Tag Manager -->
+  
+<!-- /PM:TRACKING-CONSENT-PART1 -->
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Tenant QA Auditing & Mobile Data Collection | David Park Omer</title>
+  <meta name="description" content="An anonymized architecture case study showing multi-tenant QA auditing, HTML5 mobile data collection, reporting isolation, and SaaS platform design patterns." />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css" />
+    <link rel="stylesheet" href="/assets/css/case-study.css" />
+    <link rel="stylesheet" href="/assets/css/cookie-consent-overrides.css" />
+    <script src="/assets/js/site-config.js" data-config-path="/config.generated.json"></script>
+</head>
+<body data-case-subtitle="SaaS / Mobile Case Study">
+<!-- PM:TRACKING-CONSENT-PART2 -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJFK7G8X"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+<!-- /PM:TRACKING-CONSENT-PART2 -->
+<!-- PM:CASE-HEADER -->
+<nav class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <a href="/#top">David Park Omer</a>
+        <small>SaaS / Mobile Case Study</small>
+      </div>
+      <div class="nav-links">
+        <a href="#top">Home</a>
+        <a href="/#focus">Focus Areas</a>
+        <b><a href="/#portfolio">Portfolio</a></b>
+        <a href="#overview">|&nbsp;&nbsp;&nbsp;Overview</a>
+        <a href="#problem">Challenge</a>
+        <a href="#approach">Approach</a>
+        <a href="#patterns">Architecture</a>
+        <a href="#result">Results</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#about">About</a>
+      </div>
+    </div>
+  </nav>
+<!-- /PM:CASE-HEADER -->
+
+  <main>
+    <section id="top">
+    <div class="wrap">
+      <a class="back-link" href="/#portfolio">← Back to portfolio</a>
+      <div class="hero-card">
+        <div class="eyebrow">Generalized SaaS Platform Case Study</div>
+        <h1>Multi-Tenant QA Auditing & Mobile Data Collection</h1>
+        <p>
+          A generalized architecture case study based on enterprise SaaS platform work: multi-tenant quality auditing,
+          cross-platform HTML5 mobile data collection, transactional workflow support, and reporting architecture designed
+          to protect operational performance.
+        </p>
+        <div class="meta-row">
+          <span class="chip">Multi-Tenant SaaS</span>
+          <span class="chip">HTML5 Mobile Data Collection</span>
+          <span class="chip">Reporting Architecture</span>
+          <span class="chip">Transactional Systems</span>
+          <span class="chip">Platform Reliability</span>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <div class="wrap">
+    <section>
+      <div class="note">
+        <p><strong>Confidentiality note:</strong> This is an anonymized mockup. It does not contain proprietary client code, data, database schemas, vendor names, screenshots, or implementation details. It demonstrates architecture patterns and technical judgment using generalized language.</p>
+      </div>
+    </section>
+
+    <section id="overview">
+      <div class="panel">
+        <h2>Overview</h2>
+        <p>
+          The platform supported quality auditing and operational compliance workflows for many customers from a shared SaaS foundation.
+          Users needed to collect audit data in the field, often on mobile devices, while managers and enterprise customers needed reliable
+          reporting, analytics, and visibility across locations, programs, and tenants.
+        </p>
+        <p>
+          My work focused on platform design and implementation patterns that made the system reusable, scalable, and operationally practical:
+          cross-platform HTML5 mobile data collection, tenant-aware application behavior, reporting access patterns, and a logical data warehouse
+          layer over the transactional database that avoided additional resource cost for reporting activity.
+        </p>
+        <div class="callout">
+          <strong>Core architecture idea:</strong> field data collection, transactional processing, and reporting access should share a coherent platform model without allowing reporting workloads to destabilize the operational system.
+        </div>
+      </div>
+    </section>
+
+    <section id="problem">
+      <h2>The problem</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Operational complexity</h3>
+          <p>Audits, inspections, corrective actions, locations, users, and programs had to work across multiple customers without duplicating the entire application for each tenant.</p>
+        </div>
+        <div class="card">
+          <h3>Mobile data capture</h3>
+          <p>Field users needed practical browser-based data collection that could work across device types without maintaining separate native applications for each platform.</p>
+        </div>
+        <div class="card">
+          <h3>Reporting pressure</h3>
+          <p>Customers needed analytics and reports, but reporting activity could not be allowed to degrade transactional workflows or create expensive parallel infrastructure.</p>
+        </div>
+        <div class="card">
+          <h3>Tenant-aware scale</h3>
+          <p>The same platform patterns had to support many customers, locations, forms, scoring models, and reporting views while remaining maintainable.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="panel">
+        <h2>Architecture approach</h2>
+        <p>
+          I approached the system as a platform, not a collection of one-off customer applications. The goal was to make common behaviors reusable
+          while still allowing customers and programs to vary where they needed to: audit forms, scoring rules, locations, user access, reporting views,
+          and workflow configuration.
+        </p>
+        <div class="diagram">
+<pre>Tenant / Customer Configuration
+   ↓
+Shared SaaS Application Layer
+   ↓
+HTML5 Mobile Data Collection
+   ↓
+Transactional Audit Workflow
+   ↓
+Logical Reporting / Warehouse Layer
+   ↓
+Reports, Analytics, Dashboards, Exports</pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="patterns">
+      <h2>Key design patterns</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Tenant-aware platform model</h3>
+          <p>Designed reusable application behavior around tenant/customer context rather than separate custom deployments for each customer need.</p>
+        </div>
+        <div class="card">
+          <h3>HTML5 mobile collection</h3>
+          <p>Used browser-based mobile data collection patterns to support field workflows across devices without requiring a separate native app stack.</p>
+        </div>
+        <div class="card">
+          <h3>Configurable audit workflows</h3>
+          <p>Supported variation in audit forms, location structures, scoring, users, and program behavior without hard-coding each customer scenario.</p>
+        </div>
+        <div class="card">
+          <h3>Logical reporting layer</h3>
+          <p>Created a data warehouse-style logical layer over transactional data so reports could use cleaner shapes without introducing separate reporting infrastructure.</p>
+        </div>
+        <div class="card">
+          <h3>Transactional protection</h3>
+          <p>Separated reporting access patterns from core transaction behavior so analytics needs did not compromise data capture and operational workflows.</p>
+        </div>
+        <div class="card">
+          <h3>Reusable platform components</h3>
+          <p>Built with reuse in mind across customers, modules, reports, and operational workflows to reduce duplication and improve maintainability.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel">
+        <h2>Reporting architecture</h2>
+        <p>
+          A major design concern was how to support reporting and analytics without creating unnecessary resource cost or putting production transactions at risk.
+          The solution used a logical reporting layer over the transactional database: reporting-friendly structures, views, access patterns, and query design
+          that made data easier to consume while avoiding the cost and operational burden of a separate warehouse stack for that class of reporting activity.
+        </p>
+        <ul>
+          <li>Kept transactional data as the system of record.</li>
+          <li>Exposed reporting-friendly shapes through a logical data warehouse layer.</li>
+          <li>Reduced direct coupling between reports and raw transactional structures.</li>
+          <li>Improved maintainability of analytics and reporting outputs.</li>
+          <li>Avoided additional resource cost where a full separate reporting platform was not necessary.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="result">
+      <h2>What this demonstrates</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Architecture grounded in operations</h3>
+          <p>The design balanced field usability, transactional reliability, reporting needs, and customer variability without overcomplicating the platform.</p>
+        </div>
+        <div class="card">
+          <h3>Pragmatic SaaS thinking</h3>
+          <p>The platform treated multi-tenancy, configuration, mobile capture, and reporting as first-class concerns rather than afterthoughts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel">
+        <h2>Result pattern</h2>
+        <p>
+          The resulting architecture supported a multi-tenant QA auditing platform with practical mobile data collection, reusable customer-aware behavior,
+          and reporting structures that improved analytics access while protecting operational workflows. It demonstrated a pattern I continue to value:
+          solve the business workflow, but design the underlying platform so it can support growth, reuse, and long-term maintainability.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel">
+        <h2>Technologies and concepts represented</h2>
+        <div class="meta-row">
+          <span class="chip">SaaS Architecture</span>
+          <span class="chip">Multi-Tenancy</span>
+          <span class="chip">HTML5</span>
+          <span class="chip">Mobile Data Collection</span>
+          <span class="chip">Relational Databases</span>
+          <span class="chip">Reporting Layer</span>
+          <span class="chip">Data Warehouse Logic</span>
+          <span class="chip">Workflow Configuration</span>
+          <span class="chip">Operational Reporting</span>
+          <span class="chip">Platform Reuse</span>
+        </div>
+        <a class="btn" href="/#portfolio">Back to portfolio</a>
+      </div>
+    </section>
+    </div>
+  </main>
+
+<!-- PM:FOOTER -->
+<footer class="footer wrap">
+    © <span id="year"></span> David Park Omer. All rights reserved.
+    <span class="footer-separator" aria-hidden="true"> · </span>
+    <button type="button" class="cookie-preferences-link" data-cookie-preferences>Cookie preferences</button>
+  </footer>
+<!-- /PM:FOOTER -->
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+  <script src="../assets/js/cookie-consent.js"></script>
+
+</body>
+</html>

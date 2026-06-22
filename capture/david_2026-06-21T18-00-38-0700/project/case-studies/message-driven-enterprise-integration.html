@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- PM:TRACKING-CONSENT-PART1 -->
+    <!-- Google Consent Mode defaults: deny optional analytics until consent is granted. -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied',
+          'functionality_storage': 'granted',
+          'security_storage': 'granted',
+          'wait_for_update': 500
+        });
+      </script>
+  
+      <!-- Google Tag Manager -->
+      <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PJFK7G8X');
+      </script>
+      <!-- End Google Tag Manager -->
+  
+<!-- /PM:TRACKING-CONSENT-PART1 -->
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message-Driven Enterprise Integration | David Park Omer</title>
+  <meta name="description" content="An anonymized architecture case study based on SeeBeyond messaging middleware work for enterprise SAP integration, including message-level configuration propagation and reusable interface behavior." />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css" />
+    <link rel="stylesheet" href="../assets/css/case-study.css" />
+    <link rel="stylesheet" href="../assets/css/cookie-consent-overrides.css" />
+    <script src="../assets/js/site-config.js" data-config-path="../config.generated.json"></script>
+</head>
+<body data-case-subtitle="Integration Case Study">
+<!-- PM:TRACKING-CONSENT-PART2 -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJFK7G8X"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+<!-- /PM:TRACKING-CONSENT-PART2 -->
+<!-- PM:CASE-HEADER -->
+<nav class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <a href="/#top">David Park Omer</a>
+        <small>Integration Case Study</small>
+      </div>
+      <div class="nav-links">
+        <a href="#top">Home</a>
+        <a href="/#focus">Focus Areas</a>
+        <b><a href="/#portfolio">Portfolio</a></b>
+        <a href="#overview">|&nbsp;&nbsp;&nbsp;Overview</a>
+        <a href="#problem">Challenge</a>
+        <a href="#approach">Approach</a>
+        <a href="#patterns">Architecture</a>
+        <a href="#result">Results</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#about">About</a>
+      </div>
+    </div>
+  </nav>
+<!-- /PM:CASE-HEADER -->
+
+  <main>
+    <section id="top">
+    <div class="wrap">
+      <a class="back-link" href="/#portfolio">← Back to portfolio</a>
+      <div class="hero-card">
+        <div class="eyebrow">Enterprise Integration · Messaging Middleware · SAP Connectivity</div>
+        <h1>Message-Driven Enterprise Integration</h1>
+        <p>
+          An anonymized architecture case study based on SeeBeyond messaging middleware work for large enterprise and public-sector integrations, including SAP-connected programs and standards-based interfaces for organizations such as NASA, the U.S. Army, and other enterprise environments.
+        </p>
+        <div class="meta-row" aria-label="Case study tags">
+          <span class="chip">Messaging Middleware</span>
+          <span class="chip">SAP Integration</span>
+          <span class="chip">Message-Level Configuration</span>
+          <span class="chip">Interface Reuse</span>
+          <span class="chip">HL7</span>
+          <span class="chip">Enterprise Systems</span>
+        </div>
+        <div class="notice">
+          <strong>Confidentiality note:</strong> This case study is generalized and recreated as a safe portfolio example. It does not contain proprietary client code, data, diagrams, credentials, or confidential implementation details.
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <section id="overview">
+      <div class="wrap section-grid">
+        <div class="section-label">Overview</div>
+        <div class="panel content-panel">
+          <h2>Connecting enterprise systems through reusable message-driven patterns</h2>
+          <p>
+            Large organizations often need to connect SAP, healthcare platforms, government systems, commercial applications, databases, and external partners without forcing every system to understand every other system directly. My work focused on building and supporting message-driven integration patterns that allowed systems to exchange data through controlled, reusable middleware interfaces.
+          </p>
+          <p>
+            One of the more important design improvements I added was message-level configuration propagation: the ability for runtime configuration and routing behavior to travel with the message rather than being hard-coded into each individual interface. That made integrations more flexible, easier to reuse, and easier to support across different environments and use cases.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="wrap section-grid">
+        <div class="section-label">Problem</div>
+        <div class="panel content-panel">
+          <h2>Hard-coded integration behavior does not scale cleanly</h2>
+          <p>
+            Enterprise integration projects often begin with point-to-point interfaces. That can work for a small number of systems, but it becomes fragile when the number of endpoints, message types, environments, and operational rules grows.
+          </p>
+          <ul>
+            <li>Each interface can accumulate its own hard-coded routing, transformation, and runtime assumptions.</li>
+            <li>Environment-specific behavior can become embedded in individual implementations.</li>
+            <li>Reuse becomes harder because logic is tied to a specific source, destination, or deployment context.</li>
+            <li>Operational support becomes more difficult when behavior is spread across many similar but slightly different interfaces.</li>
+            <li>Large public-sector and enterprise programs require integrations that are dependable, explainable, and maintainable over time.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="wrap section-grid">
+        <div class="section-label">Approach</div>
+        <div class="panel content-panel">
+          <h2>Design principle</h2>
+          <div class="callout">
+            <strong>Integration behavior should be carried by controlled message context wherever possible, not buried as one-off logic inside each interface.</strong>
+          </div>
+          <p>
+            The goal was not just to move data from one system to another. The goal was to create integration components that could behave consistently across environments while still allowing routing, processing, and operational behavior to be driven by configuration attached to the message flow.
+          </p>
+
+          <div class="diagram" aria-label="Conceptual architecture diagram">
+<pre>Source Systems
+   ↓
+Message Creation / Adapter Layer
+   ↓
+Message + Configuration Context
+   ↓
+SeeBeyond Messaging Middleware
+   ↓
+Routing / Transformation / Validation
+   ↓
+Target Systems
+   ↓
+SAP · Healthcare Systems · Government Platforms · Enterprise Applications</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="patterns">
+      <div class="wrap section-grid">
+        <div class="section-label">Patterns</div>
+        <div class="panel content-panel">
+          <h2>Core design patterns</h2>
+          <div class="pattern-grid">
+            <div class="mini-card">
+              <h3>Message-level configuration propagation</h3>
+              <p>Runtime behavior and routing context could travel with the message, reducing hard-coded behavior inside individual interfaces.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Reusable interface behavior</h3>
+              <p>Common processing patterns could be reused across integrations instead of rebuilt as one-off logic for each endpoint.</p>
+            </div>
+            <div class="mini-card">
+              <h3>SAP-connected integration</h3>
+              <p>Messaging patterns supported SAP-related flows while maintaining separation between enterprise systems and middleware responsibilities.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Standards-based interfaces</h3>
+              <p>Interfaces could support regulated and structured data exchange patterns, including healthcare-oriented HL7 integrations where applicable.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Operational supportability</h3>
+              <p>Configuration-aware messages made behavior easier to inspect, reason about, and support when production issues occurred.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Distributed system boundaries</h3>
+              <p>Middleware acted as a controlled boundary between systems, reducing direct coupling and protecting each platform from knowing too much about the others.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="result">
+      <div class="wrap section-grid">
+        <div class="section-label">Result</div>
+        <div class="panel content-panel">
+          <h2>Result pattern</h2>
+          <p>
+            The resulting integration approach supported cleaner reuse, more flexible runtime behavior, and more maintainable enterprise interfaces. Instead of treating each connection as a standalone custom build, the middleware layer could carry configuration context with messages and use that context to guide routing and processing behavior.
+          </p>
+          <div class="result-strip">
+            <div class="result">
+              <strong>Less hard-coding</strong>
+              <span>Runtime behavior could move with the message instead of being embedded in each interface.</span>
+            </div>
+            <div class="result">
+              <strong>More reusable interfaces</strong>
+              <span>Common integration behavior could be applied across multiple systems and environments.</span>
+            </div>
+            <div class="result">
+              <strong>Better supportability</strong>
+              <span>Message context made integration behavior easier to understand and troubleshoot.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demonstrates">
+      <div class="wrap section-grid">
+        <div class="section-label">Demonstrates</div>
+        <div class="panel content-panel">
+          <h2>What this demonstrates</h2>
+          <p>
+            This case study shows how I think about middleware as more than transport. In enterprise environments, the integration layer becomes a governance point for routing, transformation, validation, supportability, and controlled system boundaries.
+          </p>
+          <ul>
+            <li>Designing integration behavior for reuse instead of one-off implementation.</li>
+            <li>Reducing coupling between source systems, middleware, and target platforms.</li>
+            <li>Using message context to make runtime behavior more explicit and flexible.</li>
+            <li>Supporting SAP-connected and standards-based enterprise interfaces.</li>
+            <li>Thinking operationally about how production integrations are monitored, diagnosed, and maintained.</li>
+            <li>Communicating complex middleware behavior in a way that architecture, development, and operations teams can understand.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="concepts">
+      <div class="wrap section-grid">
+        <div class="section-label">Concepts</div>
+        <div class="panel content-panel">
+          <h2>Technologies and concepts represented</h2>
+          <div class="meta-row">
+            <span class="chip">SeeBeyond</span>
+            <span class="chip">Messaging Middleware</span>
+            <span class="chip">SAP Integration</span>
+            <span class="chip">Message-Level Configuration</span>
+            <span class="chip">Enterprise Application Integration</span>
+            <span class="chip">Routing and Transformation</span>
+            <span class="chip">HL7</span>
+            <span class="chip">Interface Reuse</span>
+            <span class="chip">Distributed Systems</span>
+            <span class="chip">Production Troubleshooting</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!-- PM:FOOTER -->
+<footer class="footer wrap">
+    © <span id="year"></span> David Park Omer. All rights reserved.
+    <span class="footer-separator" aria-hidden="true"> · </span>
+    <button type="button" class="cookie-preferences-link" data-cookie-preferences>Cookie preferences</button>
+  </footer>
+<!-- /PM:FOOTER -->
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+  <script src="../assets/js/cookie-consent.js"></script>
+
+</body>
+</html>

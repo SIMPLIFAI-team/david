@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: /certs/www-dev.etal.solutions.fullchain.crt
+      keyFile:  /certs/www-dev.etal.solutions.key

@@ -7,7 +7,7 @@
     "highlights": [
       "HTML5 cross-platform mobile data collection model",
       "Tenant-aware application and audit workflow concepts",
-      "Logical reporting layer over transactional data to reduce reporting overhead"
+      "Reporting overhead reduction from logical reporting layer"
     ],
     "url": "case-studies/multi-tenant-qa-auditing-mobile-data-collection.html"
   },
@@ -17,10 +17,23 @@
     "title": "Replayable vendor API ingestion and reporting layer",
     "summary": "A generalized data platform pattern showing efficient vendor API consumption, SharePoint Online caching, multi-tenant integration, and reporting design without sacrificing recovery or auditability.",
     "highlights": [
-      "Idempotent API consumer that reduces repetitive object pulls and supports replay",
-      "Performance-tuned SQL query shapes for reporting and integration workloads",
-      "Multi-tenant integration and reporting layer across vendor and operational data"
+      "Reduced repetitive object pulls with idempotent API consumer",
+      "Performance-tuned query shapes for reporting and ingestion workloads",
+      "Multi-tenant integration and reporting layer across vendor and ops data"
     ],
     "url": "case-studies/replayable-vendor-api-ingestion-reporting-layer.html"
-  }
+  },
+{
+"id": "corporate-website-and-portmason-platform-experience",
+"tag": "Web / Platform Case Study",
+"title": "Corporate website and Portmason platform experience",
+"_summaryHtml": "A modern corporate website built as a fast, data-driven static experience that unifies services, brands, thought leadership, and the Portmason Platform.<a class=\"project-link\" href=\"https://www.etal.solutions\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Open the Et al Solutions live platform in a new tab\"><span class=\"project-link__url\">www.etal.solutions</span></a>",
+"summaryHtml": "A modern corporate website built as a fast, data-driven static experience that unifies services, brands, thought leadership, and the Portmason Platform. &nbsp;&nbsp;<a style=\"font-weight:700;color:#eef2ff\" href=\"https://www.etal.solutions\" target=\"_blank\" rel=\"noopener noreferrer\">www.etal.solutions</a>",
+"highlights": [
+"Self-registering catalog architecture for services, brands, promotions, and platform content",
+"Containerized local development with repeatable Portmason setup, rendering, and deployment workflows",
+"High-performance static delivery through GitHub Pages with modular content, responsive navigation, and environment-driven configuration"
+],
+"url": "case-studies/corporate-website-and-portmason-platform-experience.html"
+}
 ]

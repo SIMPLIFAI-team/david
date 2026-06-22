@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: /certs/traefik-dev.localtest.me.fullchain.crt
+      keyFile:  /certs/traefik-dev.localtest.me.key

@@ -1,0 +1,81 @@
+/* Sample entrypoint configuration when using ACME.*/
+[entryPoints]
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
+
+# Enable ACME (Let's Encrypt): automatic SSL.
+[acme]
+
+# Email address used for registration.
+#
+# Required
+#
+email = "certs@etal.solutions"
+
+# File or key used for certificates storage.
+#
+# Required
+#
+storage = "acme.json"
+# or `storage = "traefik/acme/account"` if using KV store.
+
+# Entrypoint to proxy acme challenge/apply certificates to.
+# WARNING, must point to an entrypoint on port 443
+#
+# Required
+#
+entryPoint = "https"
+
+# Use a DNS based acme challenge rather than external HTTPS access
+#
+#
+# Optional
+#
+dnsProvider = "godaddy"
+
+# By default, the dnsProvider will verify the TXT DNS challenge record before letting ACME verify.
+# If delayDontCheckDNS is greater than zero, avoid this & instead just wait so many seconds.
+# Useful if internal networks block external DNS queries.
+#
+# Optional
+#
+# delayDontCheckDNS = 0
+
+# If true, display debug log messages from the acme client library.
+#
+# Optional
+#
+acmeLogging = true
+
+# Enable on demand certificate.
+#
+# Optional
+#
+onDemand = true
+
+# Enable certificate generation on frontends Host rules.
+#
+# Optional
+#
+# onHostRule = true
+
+# CA server to use.
+# - Uncomment the line to run on the staging let's encrypt server.
+# - Leave comment to go to prod.
+#
+# Optional
+#
+caServer = "https://acme-staging.api.letsencrypt.org/directory"
+
+# Domains list.
+#
+[[acme.domains]]
+main = "etalsolutions.tech"
+sans = "*.etalsolutions.tech"
+main = "etal.solutions"
+sans = "*.etal.solutions"
+main = "simplifai.team"
+sans = "*.simplifai.team"
+# [[acme.domains]]
+# main = "local4.com"

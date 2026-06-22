@@ -247,6 +247,7 @@
     .accent{color:var(--accent2);font-weight:700}
     @media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}.nav-inner{align-items:flex-start;flex-direction:column}.hero-card{padding:28px}}
 
+
 /* ===== END case-studies/multi-tenant-qa-auditing-mobile-data-collection.css ===== */
 
 
