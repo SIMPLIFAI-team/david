@@ -1,17 +1,32 @@
 #!/usr/bin/env bash
 set -euo pipefail
+
 required=(
   .containers/site-toolbox/Dockerfile
   .containers/site-web/nginx.conf
+  bin/reconcile-portmason-stage
   docker-compose.yml
+  portmason/pm-setup
+  portmason/pm-helpers
+  portmason/pm-process-site-partials
   www/collections/_system/collection.schema.json
   www/collections/_system/render-collection
   deploy/prd/docker-compose.yml
-  deploy/prd/portmason/pm-setup
-  deploy/prd/portmason/pm-sync-deploy-from-root
-  deploy/prd/portmason/pm-process-site-partials
   docs/PORTMASON_SITE_ALIGNMENT.md
   PORTMASON_SITE_CONTRACT.sha256
 )
-for path in "${required[@]}"; do [[ -e "$path" ]] || { echo "Missing aligned contract path: $path" >&2; exit 1; }; done
+
+for path in "${required[@]}"; do
+  [[ -e "$path" ]] || { echo "Missing aligned contract path: $path" >&2; exit 1; }
+done
+
 grep -Fq 'solutions.etal.service=' docker-compose.yml
+
+grep -Fq 'stage_portmason "archive" "cagent" "*cosign*" "*log"' portmason/pm-setup || {
+  echo "The staged legacy pm-setup does not contain the native staging call." >&2
+  exit 1
+}
+
+for path in runtime/portmason deploy/prd/runtime/portmason deploy/prd/portmason bin/stage-portmason-runtime; do
+  [[ ! -e "$path" ]] || { echo "Retired staging path exists: $path" >&2; exit 1; }
+done

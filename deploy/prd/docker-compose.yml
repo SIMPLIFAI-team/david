@@ -13,6 +13,10 @@ services:
       - type: bind
         source: .
         target: ${CONTAINER_ROOT}
+      - type: bind
+        source: ../../portmason
+        target: ${CONTAINER_ROOT}/portmason
+        read_only: true
     environment:
       REPO_ROOT: ${CONTAINER_ROOT}
       SITE_ROOT: ${CONTAINER_ROOT}/www

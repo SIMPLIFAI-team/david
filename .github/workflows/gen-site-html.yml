@@ -51,7 +51,7 @@ jobs:
             -e GITHUB_ACTIONS=true \
             -e GITHUB_SHA="${GITHUB_SHA}" \
             toolbox \
-            sh -lc 'entrypoint="$REPO_ROOT/portmason/pm-process-site-partials"; test -f "$entrypoint" && test -r "$entrypoint" || { echo "ERROR: missing or unreadable legacy Portmason entrypoint: $entrypoint" >&2; exit 1; }; exec python3 "$entrypoint"'
+            sh -lc 'if test -f "$PORTMASON_SHARE/pm-process-site-partials"; then entrypoint="$PORTMASON_SHARE/pm-process-site-partials"; elif test -f "$PORTMASON_SHARE/bin/pm-process-site-partials"; then entrypoint="$PORTMASON_SHARE/bin/pm-process-site-partials"; else echo "ERROR: missing legacy Portmason entrypoint under $PORTMASON_SHARE" >&2; exit 1; fi; test -r "$entrypoint" || { echo "ERROR: unreadable legacy Portmason entrypoint: $entrypoint" >&2; exit 1; }; exec python3 "$entrypoint"'
 
       - name: Verify Pages artifact readability
         shell: bash

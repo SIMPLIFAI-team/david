@@ -1,44 +1,85 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-python_entrypoint="deploy/prd/portmason/pm-process-site-partials"
-bash_entrypoints=(
-  deploy/prd/portmason/pm-setup
-  deploy/prd/portmason/pm-sync-deploy-from-root
+stage_root="portmason"
+required=(
+  pm-setup
+  pm-helpers
+  pm-process-site-partials
+  pm-sync-deploy-from-root
+  pm-deploy-static
+  pm-bridge-static-github
 )
 
-verify_readable_file() {
-  local path="$1"
-
-  if [[ ! -f "$path" ]]; then
-    echo "Missing legacy Portmason entrypoint: $path" >&2
-    exit 1
-  fi
-
-  if [[ ! -r "$path" ]]; then
-    echo "Unreadable legacy Portmason entrypoint: $path" >&2
-    exit 1
-  fi
-}
-
-verify_readable_file "$python_entrypoint"
-python3 -m py_compile "$python_entrypoint"
-echo "Verified Python legacy Portmason entrypoint: $python_entrypoint"
-
-for entrypoint in "${bash_entrypoints[@]}"; do
-  verify_readable_file "$entrypoint"
-  bash -n "$entrypoint"
-  echo "Verified Bash legacy Portmason entrypoint: $entrypoint"
-done
-
-workflow=.github/workflows/gen-site-html.yml
-
-grep -Fq 'exec python3 "$entrypoint"' "$workflow" || {
-  echo "Workflow does not invoke the Python legacy production entrypoint explicitly." >&2
-  exit 1
-}
-
-if grep -Fq 'test -x "$REPO_ROOT/portmason/pm-process-site-partials"' "$workflow"; then
-  echo "Workflow still depends on a Git executable bit for the production entrypoint." >&2
+if [[ ! -d "$stage_root" ]]; then
+  echo "Missing native Portmason stage: $stage_root" >&2
+  echo "Run pm-setup from the managed host before committing the site." >&2
   exit 1
 fi
+
+for name in "${required[@]}"; do
+  if [[ ! -f "$stage_root/$name" || ! -r "$stage_root/$name" ]]; then
+    echo "Incomplete native Portmason stage; missing or unreadable: $stage_root/$name" >&2
+    exit 1
+  fi
+done
+
+file_count="$(find "$stage_root" -type f | wc -l | tr -d ' ')"
+if (( file_count < 20 )); then
+  echo "Native Portmason stage is unexpectedly small ($file_count files)." >&2
+  exit 1
+fi
+
+private_material="$(find "$stage_root" -type f \( -name 'cosign.key' -o -name 'id_rsa' -o -name 'id_ed25519' -o -name '*.p12' -o -name '*.pfx' \) -print -quit)"
+if [[ -n "$private_material" ]]; then
+  echo "Private key material must not be staged: $private_material" >&2
+  exit 1
+fi
+
+bash -n "$stage_root/pm-setup"
+bash -n "$stage_root/pm-helpers"
+python3 - "$stage_root/pm-process-site-partials" <<'PY'
+from pathlib import Path
+import sys
+path = Path(sys.argv[1])
+compile(path.read_text(encoding="utf-8"), str(path), "exec")
+PY
+
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1 \
+  && git check-ignore -q "$stage_root/pm-setup"; then
+  echo "Native Portmason stage is ignored by Git: $stage_root" >&2
+  exit 1
+fi
+
+retired=(
+  runtime/portmason
+  deploy/prd/runtime/portmason
+  deploy/prd/portmason
+  bin/stage-portmason-runtime
+)
+for path in "${retired[@]}"; do
+  if [[ -e "$path" || -L "$path" ]]; then
+    echo "Retired project-specific Portmason staging path remains: $path" >&2
+    exit 1
+  fi
+done
+
+for compose_file in docker-compose.yml deploy/prd/docker-compose.yml; do
+  grep -Fq 'PORTMASON_SHARE: ${CONTAINER_ROOT}/portmason' "$compose_file" || {
+    echo "Compose file does not expose the native full-share stage: $compose_file" >&2
+    exit 1
+  }
+done
+
+grep -Fq 'source: ../../portmason' deploy/prd/docker-compose.yml || {
+  echo "Production Compose does not mount the repository-root Portmason stage." >&2
+  exit 1
+}
+
+workflow=.github/workflows/gen-site-html.yml
+grep -Fq '$PORTMASON_SHARE/pm-process-site-partials' "$workflow" || {
+  echo "Workflow does not invoke the staged native Portmason share." >&2
+  exit 1
+}
+
+printf 'Verified native full-share Portmason stage: %s (%s files)\n' "$stage_root" "$file_count"

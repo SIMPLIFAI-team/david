@@ -1,10 +1,14 @@
 # Portmason-managed local workspace material.
-/portmason/
+# The full /portmason stage is the explicit exception: pm-setup creates it and
+# isolated runners such as GitHub Actions consume the committed stage.
 /capture/
 /archive/
 /logs/
 /www/logs/
 .artifacts/
+
+!/portmason/
+!/portmason/**
 
 # Downloaded build packages and Windows attachment metadata.
 /*.tar.gz
