@@ -1,0 +1,62 @@
+[
+  {
+    "id": "saas-platform-engineer",
+    "published": true,
+    "order": 1,
+    "title": "SaaS/Platform Engineer",
+    "description": "Best for senior backend, platform, API, cloud, and multi-tenant SaaS roles.",
+    "pdf": "resumes/SaaS_resume.pdf",
+    "docx": "resumes/SaaS_resume.docx",
+    "buttonLabel": "SaaS Resume"
+  },
+  {
+    "id": "sql-server-data-platform",
+    "published": true,
+    "order": 2,
+    "title": "SQL Server/Data Platform",
+    "description": "Best for SQL Server, database performance, data platform, and database engineering roles.",
+    "pdf": "resumes/dba_resume.pdf",
+    "docx": "resumes/dba_resume.docx",
+    "buttonLabel": "DBA Resume"
+  },
+  {
+    "id": "it-network-administrator",
+    "published": true,
+    "order": 3,
+    "title": "IT/Network Administrator",
+    "description": "Best for IT support, network administration, and systems engineering roles.",
+    "pdf": "resumes/IT_Networking_resume.pdf",
+    "docx": "resumes/IT_Networking_resume.docx",
+    "buttonLabel": "IT Resume"
+  },
+  {
+    "id": "cloud-architect",
+    "published": false,
+    "order": 4,
+    "title": "Cloud Architect",
+    "description": "Cloud architecture, modernization, infrastructure, and platform roles.",
+    "pdf": "resumes/cloud_architect.pdf",
+    "docx": "resumes/cloud_architect.docx",
+    "buttonLabel": "Cloud Architect Resume"
+  },
+  {
+    "id": "middleware-integration",
+    "published": false,
+    "order": 5,
+    "title": "Middleware/Integration",
+    "description": "Enterprise integration, middleware, messaging, and API roles.",
+    "pdf": "resumes/middleware_resume.pdf",
+    "docx": "resumes/middleware_resume.docx",
+    "buttonLabel": "Middleware Resume"
+  },
+  {
+    "id": "web-developer",
+    "published": false,
+    "order": 6,
+    "title": "Web Developer",
+    "description": "Web application, frontend, backend, and full-stack development roles.",
+    "pdf": "resumes/web_developer_resume.pdf",
+    "docx": "resumes/web_developer_resume.docx",
+    "buttonLabel": "Web Developer Resume"
+  }
+]

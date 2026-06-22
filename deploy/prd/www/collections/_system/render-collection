@@ -1,0 +1,159 @@
+#!/usr/bin/env python3
+"""Render David-site Portmason Foundation regions from collection manifests."""
+from __future__ import annotations
+
+import argparse
+import html
+import json
+from pathlib import Path
+from typing import Any
+
+SITE_ROOT = Path.cwd().resolve()
+COLLECTIONS_ROOT = SITE_ROOT / "collections"
+
+
+def esc(value: object) -> str:
+    return html.escape(str(value or ""), quote=True)
+
+
+def load_json(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_collection(collection_id: str) -> tuple[Path, dict[str, Any], list[dict[str, Any]]]:
+    collection_dir = (COLLECTIONS_ROOT / collection_id).resolve()
+    if collection_dir.parent != COLLECTIONS_ROOT.resolve():
+        raise ValueError(f"Invalid collection id: {collection_id}")
+    manifest = load_json(collection_dir / "collection.json")
+    if manifest.get("id") != collection_id:
+        raise ValueError(f"Collection id mismatch: {collection_id}")
+    items = load_json(collection_dir / str(manifest["dataFile"]))
+    if not isinstance(items, list):
+        raise ValueError(f"Collection items must be an array: {collection_id}")
+    return collection_dir, manifest, items
+
+
+def published_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sorted(
+        (item for item in items if item.get("published") is True),
+        key=lambda item: (int(item.get("order", 999999)), str(item.get("id", ""))),
+    )
+
+
+def render_styles() -> str:
+    lines: list[str] = []
+    for collection_dir in sorted(
+        path for path in COLLECTIONS_ROOT.iterdir() if path.is_dir() and path.name != "_system"
+    ):
+        manifest = load_json(collection_dir / "collection.json")
+        style_path = collection_dir / str(manifest["styleFile"])
+        if not style_path.is_file():
+            raise FileNotFoundError(style_path)
+        href = style_path.relative_to(SITE_ROOT).as_posix()
+        lines.append(f'    <link rel="stylesheet" href="{esc(href)}" />')
+    return "\n".join(lines) + "\n"
+
+
+def render_case_studies(manifest: dict[str, Any], items: list[dict[str, Any]]) -> str:
+    presentation = manifest["presentation"]
+    cards: list[str] = []
+    for item in published_items(items):
+        summary = item.get("summaryHtml") or esc(item.get("summary"))
+        highlights = "\n".join(f"                  <li>{esc(value)}</li>" for value in item.get("highlights", []))
+        cards.append(
+            "\n".join(
+                [
+                    '          <div class="card">',
+                    f'            <span class="portfolio-tag">{esc(item["tag"])}</span>',
+                    f'            <h3>{esc(item["title"])}</h3>',
+                    f'            <p>{summary}</p>',
+                    '                <ul>',
+                    highlights,
+                    '                </ul>',
+                    '            <div class="case-study-actions">',
+                    f'              <a class="btn btn-secondary" href="{esc(item["url"])}">{esc(presentation["buttonLabel"])}</a>',
+                    '            </div>',
+                    '          </div>',
+                ]
+            )
+        )
+    return "\n".join(
+        [
+            f'    <section id="{esc(presentation["sectionId"])}" data-collection data-collection-id="{esc(manifest["id"])}" data-collection-mode="{esc(manifest["mode"])}">',
+            '      <div class="wrap">',
+            f'        <h2>{esc(presentation["title"])}</h2>',
+            '        <p class="section-lead">',
+            f'          {esc(presentation["lead"])}',
+            '        </p>',
+            '',
+            '        <div id="portfolio-grid" class="grid-2">',
+            *cards,
+            '        </div>',
+            '',
+            '        <div class="portfolio-note">',
+            f'          {esc(presentation["note"])}',
+            '        </div>',
+            '      </div>',
+            '    </section>',
+            '',
+        ]
+    )
+
+
+def render_resumes(manifest: dict[str, Any], items: list[dict[str, Any]]) -> str:
+    presentation = manifest["presentation"]
+    cards: list[str] = []
+    for item in published_items(items):
+        cards.extend(
+            [
+                '          <div class="card resume-card">',
+                f'            <h3>{esc(item["title"])}</h3>',
+                f'            <p>{esc(item["description"])}</p>',
+                f'            <div class="centered"><a class="btn btn-secondary" href="{esc(item["pdf"])}" target="_blank" rel="noopener noreferrer">{esc(item["buttonLabel"])}</a></div>',
+                '          </div>',
+            ]
+        )
+    return "\n".join(
+        [
+            f'    <section id="{esc(presentation["sectionId"])}" data-collection data-collection-id="{esc(manifest["id"])}" data-collection-mode="{esc(manifest["mode"])}">',
+            '      <div class="wrap">',
+            f'        <h2>{esc(presentation["title"])}</h2>',
+            '        <p class="section-lead">',
+            f'          {esc(presentation["lead"])}',
+            '        </p>',
+            '        <div class="grid-4">',
+            *cards,
+            '        </div>',
+            '      </div>',
+            '    </section>',
+            '',
+        ]
+    )
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("collection_id")
+    parser.add_argument("target", choices=("section", "styles"))
+    args = parser.parse_args()
+
+    if args.collection_id == "_system" and args.target == "styles":
+        print(render_styles(), end="")
+        return 0
+
+    _, manifest, items = load_collection(args.collection_id)
+    if args.target != "section":
+        raise ValueError(f"Unsupported target for {args.collection_id}: {args.target}")
+
+    mode = manifest.get("mode")
+    if mode == "case-study":
+        print(render_case_studies(manifest, items), end="")
+    elif mode == "catalog" and manifest.get("id") == "resumes":
+        print(render_resumes(manifest, items), end="")
+    else:
+        raise ValueError(f"Unsupported collection mode: {mode}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

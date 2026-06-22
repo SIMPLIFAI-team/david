@@ -1,0 +1,17 @@
+{
+  "$schema": "../_system/collection.schema.json",
+  "id": "case-studies",
+  "foundation": "portmason.collections",
+  "mode": "case-study",
+  "layout": "grid",
+  "dataFile": "items.json",
+  "styleFile": "styles.css",
+  "region": "COLLECTION-CASE-STUDIES",
+  "presentation": {
+    "sectionId": "portfolio",
+    "title": "Portfolio case studies",
+    "lead": "Generalized and anonymized write-ups of some of my work.",
+    "note": "Portfolio write-ups demonstrate architecture, design approach, and technical communication. They do not contain proprietary client systems, code, data, diagrams, or confidential implementation details.",
+    "buttonLabel": "Read case study"
+  }
+}

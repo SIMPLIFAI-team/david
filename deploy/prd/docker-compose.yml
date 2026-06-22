@@ -1,0 +1,26 @@
+name: ${STACK}
+services:
+  toolbox:
+    profiles:
+      - tools
+    build:
+      context: .
+      dockerfile: .containers/site-toolbox/Dockerfile
+    env_file:
+      - .env.generated
+    working_dir: ${CONTAINER_ROOT}
+    volumes:
+      - .:${CONTAINER_ROOT}
+    environment:
+      REPO_ROOT: ${CONTAINER_ROOT}
+      SITE_ROOT: ${CONTAINER_ROOT}/www
+      SITE_DIR: ${CONTAINER_ROOT}/www
+      PORTMASON_SHARE: ${CONTAINER_ROOT}/portmason
+      LOG_DIR: ${CONTAINER_ROOT}/logs
+    labels:
+      - solutions.etal.service=${STACK:-}-toolbox
+      - solutions.etal.service_tier=internal
+      - solutions.etal.managed_by=${MANAGED_BY}
+      - solutions.etal.project_id=${PROJECT_ID}
+      - solutions.etal.deployment_id=${DEPLOYMENT_ID}
+      - solutions.etal.stack=${STACK}

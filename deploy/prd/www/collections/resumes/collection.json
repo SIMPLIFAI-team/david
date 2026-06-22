@@ -1,0 +1,15 @@
+{
+  "$schema": "../_system/collection.schema.json",
+  "id": "resumes",
+  "foundation": "portmason.collections",
+  "mode": "catalog",
+  "layout": "grid",
+  "dataFile": "items.json",
+  "styleFile": "styles.css",
+  "region": "COLLECTION-RESUMES",
+  "presentation": {
+    "sectionId": "resumes",
+    "title": "Targeted resumes",
+    "lead": "I maintain targeted versions of my resume based on the role."
+  }
+}
