@@ -30,10 +30,10 @@ jobs:
         shell: bash
         working-directory: .
         run: |
-          tests/verify-compose-contract
-          tests/verify-production-entrypoints
-          tests/verify-portmason-alignment
-          tests/verify-portmason-shared-contract
+          bash tests/verify-compose-contract
+          bash tests/verify-production-entrypoints
+          bash tests/verify-portmason-alignment
+          bash tests/verify-portmason-shared-contract
 
       - name: Run Foundation and visual-contract tests
         shell: bash
@@ -51,7 +51,7 @@ jobs:
             -e GITHUB_ACTIONS=true \
             -e GITHUB_SHA="${GITHUB_SHA}" \
             toolbox \
-            sh -lc 'test -x "$REPO_ROOT/portmason/pm-process-site-partials" || { echo "ERROR: missing or non-executable: $REPO_ROOT/portmason/pm-process-site-partials" >&2; exit 1; }; exec "$REPO_ROOT/portmason/pm-process-site-partials"'
+            sh -lc 'entrypoint="$REPO_ROOT/portmason/pm-process-site-partials"; test -f "$entrypoint" && test -r "$entrypoint" || { echo "ERROR: missing or unreadable legacy Portmason entrypoint: $entrypoint" >&2; exit 1; }; exec python3 "$entrypoint"'
 
       - name: Verify Pages artifact readability
         shell: bash

@@ -1,8 +1,44 @@
 #!/usr/bin/env bash
 set -euo pipefail
-test -x deploy/prd/portmason/pm-process-site-partials
-test -x deploy/prd/portmason/pm-setup
-test -x deploy/prd/portmason/pm-sync-deploy-from-root
+
+python_entrypoint="deploy/prd/portmason/pm-process-site-partials"
+bash_entrypoints=(
+  deploy/prd/portmason/pm-setup
+  deploy/prd/portmason/pm-sync-deploy-from-root
+)
+
+verify_readable_file() {
+  local path="$1"
+
+  if [[ ! -f "$path" ]]; then
+    echo "Missing legacy Portmason entrypoint: $path" >&2
+    exit 1
+  fi
+
+  if [[ ! -r "$path" ]]; then
+    echo "Unreadable legacy Portmason entrypoint: $path" >&2
+    exit 1
+  fi
+}
+
+verify_readable_file "$python_entrypoint"
+python3 -m py_compile "$python_entrypoint"
+echo "Verified Python legacy Portmason entrypoint: $python_entrypoint"
+
+for entrypoint in "${bash_entrypoints[@]}"; do
+  verify_readable_file "$entrypoint"
+  bash -n "$entrypoint"
+  echo "Verified Bash legacy Portmason entrypoint: $entrypoint"
+done
+
 workflow=.github/workflows/gen-site-html.yml
-grep -Fq '$REPO_ROOT/portmason/pm-process-site-partials' "$workflow"
-! grep -Eq 'toolbox[[:space:]]+\\?[[:space:]]*portmason/pm-process-site-partials' "$workflow"
+
+grep -Fq 'exec python3 "$entrypoint"' "$workflow" || {
+  echo "Workflow does not invoke the Python legacy production entrypoint explicitly." >&2
+  exit 1
+}
+
+if grep -Fq 'test -x "$REPO_ROOT/portmason/pm-process-site-partials"' "$workflow"; then
+  echo "Workflow still depends on a Git executable bit for the production entrypoint." >&2
+  exit 1
+fi
