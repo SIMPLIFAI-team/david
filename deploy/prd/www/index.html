@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/cookie-consent-overrides.css" />
 <!-- PM:COLLECTION-STYLES -->
+    <link rel="stylesheet" href="collections/_system/collection.css" />
     <link rel="stylesheet" href="collections/case-studies/styles.css" />
     <link rel="stylesheet" href="collections/resumes/styles.css" />
 <!-- /PM:COLLECTION-STYLES -->
@@ -193,7 +194,7 @@ and <span class="brand-ref">Steton</span>.
     </section>
 
 <!-- PM:COLLECTION-CASE-STUDIES -->
-    <section id="portfolio" data-collection data-collection-id="case-studies" data-collection-mode="case-study">
+    <section id="portfolio" data-collection data-collection-id="case-studies" data-collection-mode="catalog">
       <div class="wrap">
         <h2>Portfolio case studies</h2>
         <p class="section-lead">
@@ -210,9 +211,7 @@ and <span class="brand-ref">Steton</span>.
                   <li>Tenant-aware application and audit workflow concepts</li>
                   <li>Reporting overhead reduction from logical reporting layer</li>
                 </ul>
-            <div class="case-study-actions">
-              <a class="btn btn-secondary" href="case-studies/multi-tenant-qa-auditing-mobile-data-collection.html">Read case study</a>
-            </div>
+            <div class="case-study-actions"><a class="btn btn-secondary" href="case-studies/multi-tenant-qa-auditing-mobile-data-collection.html">Read case study</a></div>
           </div>
           <div class="card">
             <span class="portfolio-tag">Data / API Case Study</span>
@@ -223,9 +222,7 @@ and <span class="brand-ref">Steton</span>.
                   <li>Performance-tuned query shapes for reporting and ingestion workloads</li>
                   <li>Multi-tenant integration and reporting layer across vendor and ops data</li>
                 </ul>
-            <div class="case-study-actions">
-              <a class="btn btn-secondary" href="case-studies/replayable-vendor-api-ingestion-reporting-layer.html">Read case study</a>
-            </div>
+            <div class="case-study-actions"><a class="btn btn-secondary" href="case-studies/replayable-vendor-api-ingestion-reporting-layer.html">Read case study</a></div>
           </div>
           <div class="card">
             <span class="portfolio-tag">Web / Platform Case Study</span>
@@ -236,9 +233,7 @@ and <span class="brand-ref">Steton</span>.
                   <li>Containerized local development with repeatable Portmason setup, rendering, and deployment workflows</li>
                   <li>High-performance static delivery through GitHub Pages with modular content, responsive navigation, and environment-driven configuration</li>
                 </ul>
-            <div class="case-study-actions">
-              <a class="btn btn-secondary" href="case-studies/corporate-website-and-portmason-platform-experience.html">Read case study</a>
-            </div>
+            <div class="case-study-actions"><a class="btn btn-secondary" href="case-studies/corporate-website-and-portmason-platform-experience.html">Read case study</a></div>
           </div>
         </div>
 
@@ -380,7 +375,8 @@ and <span class="brand-ref">Steton</span>.
         <p class="section-lead">
           I maintain targeted versions of my resume based on the role.
         </p>
-        <div class="grid-4">
+
+        <div id="resume-grid" class="grid-4">
           <div class="card resume-card">
             <h3>SaaS/Platform Engineer</h3>
             <p>Best for senior backend, platform, API, cloud, and multi-tenant SaaS roles.</p>
@@ -459,5 +455,7 @@ and <span class="brand-ref">Steton</span>.
   <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
   <script src="assets/js/cookie-consent.js"></script>
 
+<!-- PM:COLLECTION-SCRIPTS -->
+<!-- /PM:COLLECTION-SCRIPTS -->
 </body>
 </html>

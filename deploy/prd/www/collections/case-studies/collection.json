@@ -1,17 +1,27 @@
 {
   "$schema": "../_system/collection.schema.json",
   "id": "case-studies",
-  "foundation": "portmason.collections",
-  "mode": "case-study",
-  "layout": "grid",
+  "mode": "catalog",
+  "layout": "card-grid",
+  "interactive": false,
   "dataFile": "items.json",
   "styleFile": "styles.css",
-  "region": "COLLECTION-CASE-STUDIES",
+  "regions": {
+    "section": "COLLECTION-CASE-STUDIES"
+  },
   "presentation": {
+    "theme": "light",
+    "kicker": "Portfolio",
     "sectionId": "portfolio",
     "title": "Portfolio case studies",
-    "lead": "Generalized and anonymized write-ups of some of my work.",
+    "summary": "Generalized and anonymized write-ups of some of my work.",
     "note": "Portfolio write-ups demonstrate architecture, design approach, and technical communication. They do not contain proprietary client systems, code, data, diagrams, or confidential implementation details.",
-    "buttonLabel": "Read case study"
+    "contentId": "portfolio-grid",
+    "gridClass": "grid-2",
+    "cardClass": "card",
+    "labelClass": "portfolio-tag",
+    "actionContainerClass": "case-study-actions",
+    "buttonClass": "btn btn-secondary",
+    "noteClass": "portfolio-note"
   }
 }

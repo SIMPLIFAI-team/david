@@ -13,28 +13,36 @@ class FoundationCollectionsTests(unittest.TestCase):
         items = json.loads((base / manifest["dataFile"]).read_text(encoding="utf-8"))
         return manifest, items
 
-    def test_case_studies_are_authoritative_and_files_exist(self):
+    @staticmethod
+    def visible(items):
+        return [item for item in items if item["status"] == "published"]
+
+    def test_case_studies_use_shared_catalog_contract(self):
         manifest, items = self.load("case-studies")
-        self.assertEqual(manifest["foundation"], "portmason.collections")
-        self.assertEqual(manifest["mode"], "case-study")
-        self.assertEqual(3, sum(item["published"] for item in items))
+        self.assertEqual("catalog", manifest["mode"])
+        self.assertEqual("card-grid", manifest["layout"])
+        self.assertFalse(manifest["interactive"])
+        self.assertEqual(3, len(self.visible(items)))
         self.assertEqual(5, len(items))
         for item in items:
-            self.assertTrue((SITE / item["url"]).is_file(), item["url"])
+            self.assertTrue((SITE / item["primaryAction"]["href"]).is_file(), item["primaryAction"]["href"])
 
     def test_resume_registry_covers_all_files_without_expanding_page(self):
         manifest, items = self.load("resumes")
-        self.assertEqual(manifest["mode"], "catalog")
-        self.assertEqual(3, sum(item["published"] for item in items))
+        self.assertEqual("catalog", manifest["mode"])
+        self.assertEqual("card-grid", manifest["layout"])
+        self.assertFalse(manifest["interactive"])
+        self.assertEqual(3, len(self.visible(items)))
         self.assertEqual(6, len(items))
         for item in items:
-            self.assertTrue((SITE / item["pdf"]).is_file(), item["pdf"])
-            self.assertTrue((SITE / item["docx"]).is_file(), item["docx"])
+            self.assertTrue((SITE / item["primaryAction"]["href"]).is_file(), item["primaryAction"]["href"])
+            self.assertTrue((SITE / item["secondaryAction"]["href"]).is_file(), item["secondaryAction"]["href"])
 
     def test_rendered_index_uses_collection_regions(self):
         html = (SITE / "index.html").read_text(encoding="utf-8")
         self.assertIn("<!-- PM:COLLECTION-CASE-STUDIES -->", html)
         self.assertIn("<!-- PM:COLLECTION-RESUMES -->", html)
+        self.assertIn("<!-- PM:COLLECTION-SCRIPTS -->", html)
         self.assertIn('data-collection-id="case-studies"', html)
         self.assertIn('data-collection-id="resumes"', html)
         self.assertNotIn("fallbackCaseStudies", html)

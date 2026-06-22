@@ -35,6 +35,8 @@ services:
       - "solutions.etal.project_id=${PROJECT_ID}"
       - "solutions.etal.deployment_id=${DEPLOYMENT_ID}"
       - "solutions.etal.stack=${STACK}"
+      - "solutions.etal.client=${CLIENT}"
+      - "solutions.etal.owner=${OWNER_ALIAS}"
       - "solutions.etal.data_class=${DATA_CLASS}"
       - "solutions.etal.data_lifecycle=${DATA_LIFECYCLE}"
 
@@ -62,6 +64,8 @@ services:
       - "solutions.etal.project_id=${PROJECT_ID}"
       - "solutions.etal.deployment_id=${DEPLOYMENT_ID}"
       - "solutions.etal.stack=${STACK}"
+      - "solutions.etal.client=${CLIENT}"
+      - "solutions.etal.owner=${OWNER_ALIAS}"
 
 networks:
   proxy:

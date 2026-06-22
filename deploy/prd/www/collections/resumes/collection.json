@@ -1,15 +1,24 @@
 {
   "$schema": "../_system/collection.schema.json",
   "id": "resumes",
-  "foundation": "portmason.collections",
   "mode": "catalog",
-  "layout": "grid",
+  "layout": "card-grid",
+  "interactive": false,
   "dataFile": "items.json",
   "styleFile": "styles.css",
-  "region": "COLLECTION-RESUMES",
+  "regions": {
+    "section": "COLLECTION-RESUMES"
+  },
   "presentation": {
+    "theme": "light",
+    "kicker": "Resumes",
     "sectionId": "resumes",
     "title": "Targeted resumes",
-    "lead": "I maintain targeted versions of my resume based on the role."
+    "summary": "I maintain targeted versions of my resume based on the role.",
+    "contentId": "resume-grid",
+    "gridClass": "grid-4",
+    "cardClass": "card resume-card",
+    "actionContainerClass": "centered",
+    "buttonClass": "btn btn-secondary"
   }
 }

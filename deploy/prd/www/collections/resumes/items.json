@@ -1,62 +1,104 @@
 [
   {
     "id": "saas-platform-engineer",
-    "published": true,
-    "order": 1,
+    "slug": "saas-platform-engineer",
+    "status": "published",
+    "sortOrder": 1,
     "title": "SaaS/Platform Engineer",
-    "description": "Best for senior backend, platform, API, cloud, and multi-tenant SaaS roles.",
-    "pdf": "resumes/SaaS_resume.pdf",
-    "docx": "resumes/SaaS_resume.docx",
-    "buttonLabel": "SaaS Resume"
+    "summary": "Best for senior backend, platform, API, cloud, and multi-tenant SaaS roles.",
+    "primaryAction": {
+      "label": "SaaS Resume",
+      "href": "resumes/SaaS_resume.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/SaaS_resume.docx"
+    }
   },
   {
     "id": "sql-server-data-platform",
-    "published": true,
-    "order": 2,
+    "slug": "sql-server-data-platform",
+    "status": "published",
+    "sortOrder": 2,
     "title": "SQL Server/Data Platform",
-    "description": "Best for SQL Server, database performance, data platform, and database engineering roles.",
-    "pdf": "resumes/dba_resume.pdf",
-    "docx": "resumes/dba_resume.docx",
-    "buttonLabel": "DBA Resume"
+    "summary": "Best for SQL Server, database performance, data platform, and database engineering roles.",
+    "primaryAction": {
+      "label": "DBA Resume",
+      "href": "resumes/dba_resume.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/dba_resume.docx"
+    }
   },
   {
     "id": "it-network-administrator",
-    "published": true,
-    "order": 3,
+    "slug": "it-network-administrator",
+    "status": "published",
+    "sortOrder": 3,
     "title": "IT/Network Administrator",
-    "description": "Best for IT support, network administration, and systems engineering roles.",
-    "pdf": "resumes/IT_Networking_resume.pdf",
-    "docx": "resumes/IT_Networking_resume.docx",
-    "buttonLabel": "IT Resume"
+    "summary": "Best for IT support, network administration, and systems engineering roles.",
+    "primaryAction": {
+      "label": "IT Resume",
+      "href": "resumes/IT_Networking_resume.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/IT_Networking_resume.docx"
+    }
   },
   {
     "id": "cloud-architect",
-    "published": false,
-    "order": 4,
+    "slug": "cloud-architect",
+    "status": "hidden",
+    "sortOrder": 4,
     "title": "Cloud Architect",
-    "description": "Cloud architecture, modernization, infrastructure, and platform roles.",
-    "pdf": "resumes/cloud_architect.pdf",
-    "docx": "resumes/cloud_architect.docx",
-    "buttonLabel": "Cloud Architect Resume"
+    "summary": "Cloud architecture, modernization, infrastructure, and platform roles.",
+    "primaryAction": {
+      "label": "Cloud Architect Resume",
+      "href": "resumes/cloud_architect.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/cloud_architect.docx"
+    }
   },
   {
     "id": "middleware-integration",
-    "published": false,
-    "order": 5,
+    "slug": "middleware-integration",
+    "status": "hidden",
+    "sortOrder": 5,
     "title": "Middleware/Integration",
-    "description": "Enterprise integration, middleware, messaging, and API roles.",
-    "pdf": "resumes/middleware_resume.pdf",
-    "docx": "resumes/middleware_resume.docx",
-    "buttonLabel": "Middleware Resume"
+    "summary": "Enterprise integration, middleware, messaging, and API roles.",
+    "primaryAction": {
+      "label": "Middleware Resume",
+      "href": "resumes/middleware_resume.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/middleware_resume.docx"
+    }
   },
   {
     "id": "web-developer",
-    "published": false,
-    "order": 6,
+    "slug": "web-developer",
+    "status": "hidden",
+    "sortOrder": 6,
     "title": "Web Developer",
-    "description": "Web application, frontend, backend, and full-stack development roles.",
-    "pdf": "resumes/web_developer_resume.pdf",
-    "docx": "resumes/web_developer_resume.docx",
-    "buttonLabel": "Web Developer Resume"
+    "summary": "Web application, frontend, backend, and full-stack development roles.",
+    "primaryAction": {
+      "label": "Web Developer Resume",
+      "href": "resumes/web_developer_resume.pdf",
+      "openInNewTab": true
+    },
+    "secondaryAction": {
+      "label": "DOCX",
+      "href": "resumes/web_developer_resume.docx"
+    }
   }
 ]

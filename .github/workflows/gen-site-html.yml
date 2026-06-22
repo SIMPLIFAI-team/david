@@ -1,4 +1,4 @@
-name: Generate and deploy David site
+name: Generate site HTML
 
 on:
   push:
@@ -11,38 +11,64 @@ permissions:
   id-token: write
 
 concurrency:
-  group: david-site-pages
-  cancel-in-progress: true
+  group: gen-site-html
+  cancel-in-progress: false
 
 jobs:
-  verify-and-generate:
+  generate:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: deploy/prd
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Verify Compose bind-mount contract
-        run: tests/verify-compose-contract
+      - name: Verify shared legacy Portmason contract
+        shell: bash
+        working-directory: .
+        run: |
+          tests/verify-compose-contract
+          tests/verify-production-entrypoints
+          tests/verify-portmason-alignment
+          tests/verify-portmason-shared-contract
 
       - name: Run Foundation and visual-contract tests
+        shell: bash
+        working-directory: .
         run: |
           docker compose --profile tools run --rm --no-deps toolbox \
             python -m unittest discover -s tests -v
 
-      - name: Generate production collection HTML
-        working-directory: deploy/prd
+      - name: Generate production site HTML
         run: |
-          docker compose --profile tools run --rm --no-deps toolbox \
-            portmason/pm-process-site-partials
+          docker compose \
+            -f docker-compose.yml \
+            run --rm \
+            -e SITE_DIR=/workspace/www \
+            -e GITHUB_ACTIONS=true \
+            -e GITHUB_SHA="${GITHUB_SHA}" \
+            toolbox \
+            sh -lc 'test -x "$REPO_ROOT/portmason/pm-process-site-partials" || { echo "ERROR: missing or non-executable: $REPO_ROOT/portmason/pm-process-site-partials" >&2; exit 1; }; exec "$REPO_ROOT/portmason/pm-process-site-partials"'
 
-      - name: Verify Pages artifact
+      - name: Verify Pages artifact readability
+        shell: bash
+        working-directory: .
         run: |
-          test -f deploy/prd/www/index.html
-          test -f deploy/prd/www/CNAME
-          test -f deploy/prd/www/collections/case-studies/items.json
-          test -f deploy/prd/www/collections/resumes/items.json
-          ! grep -q 'fallbackCaseStudies' deploy/prd/www/index.html
-          tar -C deploy/prd/www -cf /dev/null .
+          artifact_root="deploy/prd/www"
+          test -f "${artifact_root}/index.html"
+          test -f "${artifact_root}/CNAME"
+          test -f "${artifact_root}/collections/case-studies/items.json"
+          test -f "${artifact_root}/collections/resumes/items.json"
+          unreadable_files="$(find "$artifact_root" -type f ! -readable -print)"
+          if [[ -n "$unreadable_files" ]]; then
+            echo "Pages artifact contains unreadable files:" >&2
+            printf '%s\n' "$unreadable_files" >&2
+            exit 1
+          fi
+          tar -C "$artifact_root" -cf /dev/null .
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -51,10 +77,12 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: verify-and-generate
+    needs: generate
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
