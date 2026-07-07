@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Experience Collection Item",
+  "type": "object",
+  "required": ["id", "published", "sortOrder", "title", ],
+  "properties": {
+    "id": {"type": "string"},
+    "published": {"type": "boolean"},
+    "sortOrder": {"type": "integer", "minimum": 1},
+    "title": {"type": "string"},
+    "highlightgs": {"type": "string"},
+  },
+  "additionalProperties": false
+}

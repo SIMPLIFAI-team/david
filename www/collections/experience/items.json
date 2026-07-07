@@ -1,0 +1,31 @@
+[
+  {
+    "id": "independent-technical-projects-and-platform-engineering",
+    "slug": "independent-technical-projects-and-platform-engineering",
+    "published": true,
+    "sortOrder": 1,
+    "datesTag": "2024 - current",
+    "title": "Independent Technical Projects and Platform Engineering",
+    "highlights": [
+      "Designed and implemented .NET applications, APIs, integration components, automation workflows, and relational data solutions using cloud-ready architectural patterns.",
+      "Built repeatable, containerized development and runtime environments using Docker, environment-driven configuration, and documented deployment processes.",
+      "Developed reporting and data-processing workflows, including A.I.-assisted automation intended to reduce repetitive manual work.",
+      "Designed, built, and maintain the public Et al Solutions technology platform, demonstrating modern web architecture, API integration, automated deployment, and technical content delivery.  www.etal.solutions",
+      "Defined and documented technical governance standards covering reproducible environments, 12-factor configuration, platform-managed secrets, CI and testing discipline, runtime portability, and service classification."
+    ]
+  }
+  {
+    "id": "project-consulting-services-inc-via-teksystems",
+    "slug": "project-consulting-services-inc-via-teksystems",
+    "published": true,
+    "sortOrder": 1,
+    "datesTag": "2024 - current",
+    "title": "Independent Technical Projects and Platform Engineering",
+    "highlights": [
+      "Designed a vendor API consumer that reduced repetitive object pulls, prevented data loss, and supported replayable ingestion for recovery and auditability.",
+      "Introduced a multi-tenant integration and reporting layer across vendor, operational, and reporting data.",
+      "Implemented SharePoint Online caching patterns and performance-tuned SQL query shapes for large-scale reporting and integration workloads.",
+      "Improved processing latency from 24+ hours to near real-time."
+    ]
+  }
+]
