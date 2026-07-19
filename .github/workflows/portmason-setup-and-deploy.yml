@@ -78,7 +78,7 @@ jobs:
         with:
           repository: domer6811/ops-and-sops
           ref: ${{ steps.portmason-ref.outputs.ref }}
-          token: ${{ env.OPS_AND_SOPS_READ_TOKEN }}
+          token: ${{ secrets.OPS_AND_SOPS_READ_TOKEN }}
           path: ${{ env.OPS_DIR }}
           sparse-checkout: |
             ops/portmason
