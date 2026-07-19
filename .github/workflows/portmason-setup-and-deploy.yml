@@ -63,16 +63,13 @@ jobs:
             fi
           fi
 
-          auth_header="AUTHORIZATION: basic $(printf 'x-access-token:%s' "${OPS_AND_SOPS_READ_TOKEN}" | base64 -w0)"
-
-          git init "${OPS_DIR}"
-          git -C "${OPS_DIR}" remote add origin https://github.com/domer6811/ops-and-sops.git
-          git -C "${OPS_DIR}" config http.https://github.com/.extraheader "${auth_header}"
+          git init --initial-branch=main "${OPS_DIR}"
+          git -C "${OPS_DIR}" remote add origin "https://x-access-token:${OPS_AND_SOPS_READ_TOKEN}@github.com/domer6811/ops-and-sops.git"
           git -C "${OPS_DIR}" sparse-checkout init --cone
           git -C "${OPS_DIR}" sparse-checkout set ops/portmason
           git -C "${OPS_DIR}" fetch --depth=1 origin "${ref}"
           git -C "${OPS_DIR}" checkout --detach FETCH_HEAD
-          git -C "${OPS_DIR}" config --unset-all http.https://github.com/.extraheader || true
+          git -C "${OPS_DIR}" remote set-url origin https://github.com/domer6811/ops-and-sops.git
 
           portmason_share="${GITHUB_WORKSPACE}/${OPS_DIR}/ops/portmason"
 
