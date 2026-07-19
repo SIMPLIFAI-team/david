@@ -65,11 +65,15 @@ jobs:
 
           mkdir -p "${OPS_DIR}"
           archive="${RUNNER_TEMP}/ops-and-sops.tar.gz"
-          curl --fail --location --silent --show-error \
-            --header "Authorization: Bearer ${OPS_AND_SOPS_READ_TOKEN}" \
-            --header "Accept: application/vnd.github+json" \
-            --output "${archive}" \
-            "https://api.github.com/repos/domer6811/ops-and-sops/tarball/${ref}"
+          export GH_TOKEN="${OPS_AND_SOPS_READ_TOKEN}"
+
+          gh api \
+            "repos/domer6811/ops-and-sops/contents/ops/portmason/pm-setup?ref=${ref}" \
+            --jq .name >/dev/null
+
+          gh api \
+            "repos/domer6811/ops-and-sops/tarball/${ref}" \
+            > "${archive}"
 
           tar -xzf "${archive}" \
             --strip-components=1 \
