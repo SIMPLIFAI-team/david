@@ -63,13 +63,18 @@ jobs:
             fi
           fi
 
-          git init --initial-branch=main "${OPS_DIR}"
-          git -C "${OPS_DIR}" remote add origin "https://x-access-token:${OPS_AND_SOPS_READ_TOKEN}@github.com/domer6811/ops-and-sops.git"
-          git -C "${OPS_DIR}" sparse-checkout init --cone
-          git -C "${OPS_DIR}" sparse-checkout set ops/portmason
-          git -C "${OPS_DIR}" fetch --depth=1 origin "${ref}"
-          git -C "${OPS_DIR}" checkout --detach FETCH_HEAD
-          git -C "${OPS_DIR}" remote set-url origin https://github.com/domer6811/ops-and-sops.git
+          mkdir -p "${OPS_DIR}"
+          archive="${RUNNER_TEMP}/ops-and-sops.tar.gz"
+          curl --fail --location --silent --show-error \
+            --header "Authorization: Bearer ${OPS_AND_SOPS_READ_TOKEN}" \
+            --header "Accept: application/vnd.github+json" \
+            --output "${archive}" \
+            "https://api.github.com/repos/domer6811/ops-and-sops/tarball/${ref}"
+
+          tar -xzf "${archive}" \
+            --strip-components=1 \
+            --wildcards '*/ops/portmason/*' \
+            -C "${OPS_DIR}"
 
           portmason_share="${GITHUB_WORKSPACE}/${OPS_DIR}/ops/portmason"
 
