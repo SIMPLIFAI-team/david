@@ -1,0 +1,2 @@
+service	role	config_scopes
+web	david-dev-web	david-dev-web,web

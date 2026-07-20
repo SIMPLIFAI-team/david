@@ -1,0 +1,26 @@
+{
+  "$schema": "../_system/collection.schema.json",
+  "id": "experience",
+  "mode": "catalog",
+  "layout": "card-grid",
+  "interactive": false,
+  "dataFile": "items.json",
+  "styleFile": "styles.css",
+  "regions": {
+    "section": "COLLECTION-EXPERIENCE"
+  },
+  "presentation": {
+    "theme": "light",
+    "kicker": "experience",
+    "sectionId": "experience",
+    "title": "Experience highlights",
+    "summary": "A condensed view of the roles most relevant to software and data platform positions.",
+    "contentId": "experience-grid",
+    "gridClass": "grid-2",
+    "cardClass": "card",
+    "labelClass": "experience-tag",
+    "actionContainerClass": "experience-actions",
+    "buttonClass": "btn btn-secondary",
+    "noteClass": "experience-note"
+  }
+}

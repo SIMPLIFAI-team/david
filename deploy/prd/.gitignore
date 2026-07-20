@@ -7,8 +7,8 @@
 /www/logs/
 .artifacts/
 
-!/portmason/
-!/portmason/**
+/portmason/
+/portmason/**
 
 # Downloaded build packages and Windows attachment metadata.
 /*.tar.gz

@@ -68,10 +68,6 @@ jobs:
           export GH_TOKEN="${OPS_AND_SOPS_READ_TOKEN}"
 
           gh api \
-            "repos/domer6811/ops-and-sops/contents/ops/portmason/pm-setup?ref=${ref}" \
-            --jq .name >/dev/null
-
-          gh api \
             "repos/domer6811/ops-and-sops/tarball/${ref}" \
             > "${archive}"
 
