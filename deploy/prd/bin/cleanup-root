@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
+
+echo "bin/cleanup-root is retired while GitHub Pages may serve the repository root." >&2
+echo "Refreshing the root mirror from authoritative www/ instead." >&2
+exec "${repo_root}/bin/sync-pages-root"

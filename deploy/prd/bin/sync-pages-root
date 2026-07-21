@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
+site_root="${repo_root}/www"
+
+[[ -f "${site_root}/index.html" ]] || {
+  echo "Refusing Pages-root sync: ${site_root}/index.html is missing" >&2
+  exit 1
+}
+
+files=(
+  404.html
+  CNAME
+  config.generated.json
+  index.html
+)
+
+directories=(
+  assets
+  case-studies
+  collections
+  partials
+  resumes
+)
+
+for name in "${files[@]}"; do
+  [[ -f "${site_root}/${name}" ]] || continue
+  cp -p -- "${site_root}/${name}" "${repo_root}/${name}"
+done
+
+for name in "${directories[@]}"; do
+  [[ -d "${site_root}/${name}" ]] || continue
+  rm -rf -- "${repo_root:?}/${name}"
+  cp -a -- "${site_root}/${name}" "${repo_root}/${name}"
+done
+
+find "${repo_root}/assets" "${repo_root}/case-studies" "${repo_root}/collections" \
+  "${repo_root}/partials" "${repo_root}/resumes" \
+  -type f -name '*:Zone.Identifier' -delete 2>/dev/null || true
+
+: > "${repo_root}/.nojekyll"
+
+printf 'Published authoritative www/ content to the GitHub Pages root mirror.\n' >&2
