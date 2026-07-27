@@ -472,3 +472,74 @@ main{
     --footer-h: 76px;
   }
 }
+
+/* ===== David portfolio palette: Benjamin Moore Color Trends 2026 ===== */
+:root{
+  --bg:#57504c;
+  --bg2:#435155;
+  --panel:#4b4542;
+  --panel2:#435155;
+  --text:#eeece1;
+  --muted:#d8d0c7;
+  --line:rgba(232,222,207,.22);
+  --accent:#a7b3aa;
+  --accent2:#e8decf;
+  --warn:#b8a183;
+  --shadow:0 14px 40px rgba(30,24,22,.34);
+}
+html{
+  background:var(--bg);
+}
+body{
+  background-color:var(--bg);
+  background:
+    radial-gradient(circle at top left,rgba(167,179,170,.18),transparent 30%),
+    radial-gradient(circle at top right,rgba(232,222,207,.12),transparent 26%),
+    linear-gradient(180deg,var(--bg),#494340 100%);
+}
+.nav{
+  background:rgba(67,81,85,.94);
+  border-bottom-color:rgba(232,222,207,.18);
+}
+.hero-card,
+.panel,
+.card{
+  background:linear-gradient(155deg,rgba(75,69,66,.97),rgba(67,81,85,.92));
+}
+.eyebrow::before{
+  box-shadow:0 0 0 6px rgba(167,179,170,.16);
+}
+.chip,
+pre{
+  background-color:rgba(232,222,207,.05);
+  color:var(--text);
+}
+.notice,
+.note{
+  border-color:rgba(184,161,131,.45);
+  background:rgba(184,161,131,.12);
+  color:var(--text);
+}
+.note p{
+  color:var(--text);
+}
+.callout{
+  border-color:rgba(167,179,170,.36);
+  background:rgba(167,179,170,.1);
+  color:var(--text);
+}
+.diagram,
+.mini-card{
+  background:rgba(232,222,207,.05);
+}
+.result{
+  background:linear-gradient(180deg,rgba(167,179,170,.14),rgba(232,222,207,.04));
+}
+.btn{
+  background:rgba(232,222,207,.05);
+}
+.footer{
+  background:rgba(67,81,85,.96);
+  border-top-color:rgba(232,222,207,.22);
+  color:var(--muted);
+}
