@@ -2,10 +2,10 @@
 set -euo pipefail
 
 required=(
-  docker-compose.yml
-  deploy/prd/docker-compose.yml
-  deploy/prd/portmason/pm-setup
-  deploy/prd/portmason/pm-process-site-partials
+  .portmason-tooling-ref
+  .github/workflows/portmason-setup-and-deploy.yml
+  mgt-scripts/setup
+  www/index.html
   www/collections/_system/render-collection
 )
 
@@ -16,4 +16,10 @@ for path in "${required[@]}"; do
   }
 done
 
-printf 'Basic Portmason site alignment is present.\n'
+tooling_ref="$(tr -d '[:space:]' < .portmason-tooling-ref)"
+[[ "$tooling_ref" =~ ^[0-9a-f]{40}$ ]] || {
+  printf 'Invalid Portmason tooling revision: %s\n' "$tooling_ref" >&2
+  exit 1
+}
+
+printf 'Current root-built Portmason site alignment is present.\n'

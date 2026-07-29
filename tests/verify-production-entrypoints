@@ -1,22 +1,36 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-entrypoint="deploy/prd/portmason/pm-process-site-partials"
+workflow=".github/workflows/portmason-setup-and-deploy.yml"
 
-if [[ ! -r "$entrypoint" ]]; then
-  echo "Missing staged Portmason entrypoint: $entrypoint" >&2
-  echo "Run pm-setup from deploy/prd, then commit the staged share." >&2
+if [[ ! -r "$workflow" ]]; then
+  echo "Missing Portmason publication workflow: $workflow" >&2
   exit 1
 fi
 
-grep -Fq 'PORTMASON_SHARE: ${CONTAINER_ROOT}/portmason' deploy/prd/docker-compose.yml || {
-  echo "Production Compose is not using the staged Portmason share." >&2
+grep -Fq 'ref_file=".portmason-tooling-ref"' "$workflow" || {
+  echo "The Pages workflow does not validate its pinned Portmason revision." >&2
   exit 1
 }
 
-grep -Fq '$PORTMASON_SHARE/pm-process-site-partials' .github/workflows/gen-site-html.yml || {
-  echo "The Pages workflow is not using the staged Portmason entrypoint." >&2
+grep -Fq 'working-directory: ${{ env.PROJECT_DIR }}' "$workflow" || {
+  echo "The Pages workflow does not run from the project root." >&2
   exit 1
 }
 
-printf 'Staged Portmason entrypoint is ready.\n'
+grep -Fq 'PM_DEPLOY_ENV: prd' "$workflow" || {
+  echo "The Pages workflow does not identify the official production environment." >&2
+  exit 1
+}
+
+grep -Fq 'path: ${{ steps.publication.outputs.path }}' "$workflow" || {
+  echo "The Pages workflow does not upload Portmason's resolved publication directory." >&2
+  exit 1
+}
+
+if grep -Eq 'DEPLOY_DIR|PAGES_SITE_DIR|site/deploy/prd' "$workflow"; then
+  echo "The Pages workflow still depends on the legacy deployment snapshot." >&2
+  exit 1
+fi
+
+printf 'Pinned root-built Portmason publication entrypoints are ready.\n'
