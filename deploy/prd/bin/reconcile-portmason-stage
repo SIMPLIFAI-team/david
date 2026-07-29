@@ -1,25 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
-
-retired_paths=(
-  "$repo_root/runtime/portmason"
-  "$repo_root/deploy/prd/runtime/portmason"
-  "$repo_root/deploy/prd/portmason"
-)
-
-for path in "${retired_paths[@]}"; do
-  if [[ -e "$path" || -L "$path" ]]; then
-    printf 'Removing retired Portmason stage: %s\n' "$path" >&2
-    rm -rf -- "$path"
-  fi
-done
-
-retired_script="$repo_root/bin/stage-portmason-runtime"
-if [[ -e "$retired_script" || -L "$retired_script" ]]; then
-  printf 'Removing retired project-specific staging command: %s\n' "$retired_script" >&2
-  rm -f -- "$retired_script"
-fi
-
-printf 'Portmason staging layout reconciled. Native pm-setup staging remains authoritative.\n' >&2
+printf '%s\n' \
+  'Portmason staging reconciliation is retired.' \
+  'Run pm-setup from the repository root; production uses the pinned GitHub Actions workflow.' \
+  >&2

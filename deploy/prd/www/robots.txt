@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /404.html
+Disallow: /case-studies/message-driven-enterprise-integration.html
+Disallow: /case-studies/web-based-purchasing-accounts-payable-system.html
+
+Sitemap: https://david.simplifai.team/sitemap.xml
