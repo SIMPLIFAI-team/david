@@ -8,29 +8,29 @@ if [[ ! -r "$workflow" ]]; then
   exit 1
 fi
 
-grep -Fq 'ref_file=".portmason-tooling-ref"' "$workflow" || {
-  echo "The Pages workflow does not validate its pinned Portmason revision." >&2
+grep -Fq 'OPS_AND_SOPS_READ_TOKEN: ${{ secrets.OPS_AND_SOPS_READ_TOKEN }}' "$workflow" || {
+  echo "The Pages workflow does not use David's Portmason checkout secret." >&2
   exit 1
 }
 
-grep -Fq 'working-directory: ${{ env.PROJECT_DIR }}' "$workflow" || {
-  echo "The Pages workflow does not run from the project root." >&2
+grep -Fq 'DEPLOY_DIR: site/deploy/prd' "$workflow" || {
+  echo "The Pages workflow does not define the production deployment directory." >&2
   exit 1
 }
 
-grep -Fq 'PM_DEPLOY_ENV: prd' "$workflow" || {
-  echo "The Pages workflow does not identify the official production environment." >&2
+grep -Fq 'PAGES_SITE_DIR: site/deploy/prd/www' "$workflow" || {
+  echo "The Pages workflow does not define the production publication directory." >&2
   exit 1
 }
 
-grep -Fq 'path: ${{ steps.publication.outputs.path }}' "$workflow" || {
-  echo "The Pages workflow does not upload Portmason's resolved publication directory." >&2
+grep -Fq 'working-directory: ${{ env.DEPLOY_DIR }}' "$workflow" || {
+  echo "The Pages workflow does not run Portmason from the production deployment directory." >&2
   exit 1
 }
 
-if grep -Eq 'DEPLOY_DIR|PAGES_SITE_DIR|site/deploy/prd' "$workflow"; then
-  echo "The Pages workflow still depends on the legacy deployment snapshot." >&2
+grep -Fq 'path: ${{ env.PAGES_SITE_DIR }}' "$workflow" || {
+  echo "The Pages workflow does not upload the production deployment artifact." >&2
   exit 1
-fi
+}
 
-printf 'Pinned root-built Portmason publication entrypoints are ready.\n'
+printf 'Deployment-snapshot Portmason publication entrypoints are ready.\n'

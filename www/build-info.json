@@ -1,11 +1,11 @@
 {
-  "artifactSha256": "c8a4b7ca53f38d8eb451e45a4a8ae769fde2fe70968aa541d5e051d3a81a8f5a",
-  "buildId": "dev-07e660fa82c1-dirty",
-  "buildNumber": "028",
+  "artifactSha256": "838eca33d9a1182415e1b701f0d90a39aef680f109019b9fac5e0d4a980626cd",
+  "buildId": "dev-e654da5125ce-dirty",
+  "buildNumber": "029",
   "builder": "Et al Solutions LLC",
-  "builtAt": "2026-08-04T14:43:50Z",
+  "builtAt": "2026-08-04T15:54:32Z",
   "officialBuild": false,
   "schemaVersion": 1,
-  "sourceCommit": "07e660fa82c157c153289793152b935f79e302ff",
+  "sourceCommit": "e654da5125ce321d5197f8ad11a638c5de719d49",
   "sourceDirty": true
 }
