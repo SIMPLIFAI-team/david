@@ -1,12 +1,4 @@
 {
-  "PROJECT_ID": "david-1774401935",
-  "STACK": "david",
-  "DEPLOYMENT_ID": "david-1774401935",
-  "APP_SLUG": "david",
-  "DEPLOY_ENV": "prd",
-  "APP_HOST": "david.simplifai.team",
-  "APP_URL": "https://david.simplifai.team",
-  "SITE_URL": "https://david.simplifai.team",
-  "URI_SCHEME": "https:",
-  "LOG_FORMAT": "text"
+  "APP_HOST": "david-dev.localtest.me",
+  "SITE_URL": "https://david-dev.localtest.me"
 }

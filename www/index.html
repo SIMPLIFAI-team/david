@@ -3,21 +3,24 @@
 <head>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.googletagmanager.com https://static.cloudflareinsights.com; script-src-elem 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.google.com https://cloudflareinsights.com; frame-src https://www.googletagmanager.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self' mailto:;">
 <!-- PM:TRACKING-CONSENT -->
-<link data-pm-web-analytics-stylesheet="" href="/assets/pm-web-analytics.css" rel="stylesheet"/>
-<script data-pm-web-consent="" data-gtm-container-id="GTM-PJFK7G8X" data-site-name="David Park Omer" src="/assets/pm-web-analytics.js"></script>
+<link data-pm-web-analytics-stylesheet="" href="/assets/pm-web-analytics.css?v=028" rel="stylesheet"/>
+<script data-pm-web-consent="" data-gtm-container-id="GTM-PJFK7G8X" data-site-name="David Park Omer" src="/assets/pm-web-analytics.js?v=028"></script>
 <!-- /PM:TRACKING-CONSENT -->
 <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>David Park Omer | Software & Data Platform</title>
   <meta name="description" content="Personal career website for David Park Omer — senior software, SaaS, and data platform engineer with 15+ years of experience." />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/cookie-consent-overrides.css" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=028" />
+    <link rel="stylesheet" href="assets/css/cookie-consent-overrides.css?v=028" />
 <!-- PM:COLLECTION-STYLES -->
     <link rel="stylesheet" href="collections/_system/collection.css" />
     <link rel="stylesheet" href="collections/case-studies/styles.css" />
     <link rel="stylesheet" href="collections/experience/styles.css" />
     <link rel="stylesheet" href="collections/resumes/styles.css" />
 <!-- /PM:COLLECTION-STYLES -->
+<link data-pm-build-info-stylesheet="" href="/assets/pm-build-info.css?v=028" rel="stylesheet"/>
+<meta content="/build-info.json" data-pm-build-info-meta="build" name="etal-site-build-info"/>
+<meta content="/deploy-info.json" data-pm-build-info-meta="deploy" name="etal-site-deploy-info"/>
 </head>
 <body>
 <!-- PM:HOME-HEADER -->
@@ -214,40 +217,119 @@ and <span class="brand-ref">Steton</span>.
     </section>
 <!-- /PM:COLLECTION-CASE-STUDIES -->
 
-<!-- PM:COLLECTION-EXPERIENCE -->
-    <section id="experience" data-collection data-collection-id="experience" data-collection-mode="catalog">
+    <section id="experience">
+
       <div class="wrap">
         <h2>Experience highlights</h2>
         <p class="section-lead">
-          A condensed view of the roles most relevant to software and data platform positions.
+          A condensed view of the roles most relevant to software, middleware, and data platform positions.
         </p>
+        <div class="timeline">
+          <article class="job">
+            <div class="dates">2024 – 2026</div>
+            <div>
+              <h3>Et al Solutions LLC <span>— Senior Consultant</span></h3>
+              <ul> 
+				<li>Architected and developed ReviewNudge™&nbsp;&nbsp;<a style="font-weight:700;color:#eef2ff" href="https://reviewnudge.dourl.net" target="_blank">reviewnudge.dourl.net</a>, &nbsp;&nbsp;a multi-tenant, micro-SaaS platform that automates customer review requests, follow-ups, workspace administration, and review-status tracking for service businesses.</li>	
+				<li>Designed and developed Portmason™&nbsp;&nbsp;<a style="font-weight:700;color:#eef2ff" href="https://www.etal.solutions/#lab" target="_blank">www.etal.solutions</a>, &nbsp;&nbsp;a portable automation platform that standardizes application provisioning, deployment, configuration, and operations across local and cloud environments.</li>
+                <li>Designed and implemented .NET applications, backend services, integrations, and reporting workflows for small business platforms.</li>
+                <li>Designed and implemented .NET applications, backend services, integrations, and reporting workflows for small business platforms.</li>
+                <li>Connected relational databases and external REST APIs using reusable integration components.</li>
+                <li>Applied automation and AI-assisted workflows to streamline development and operations.</li>
+              </ul>
+            </div>
+          </article>
 
-        <div id="experience-grid" class="grid-2">
-          <div class="card">
-            <h3>Independent Technical Projects and Platform Engineering</h3>
-            <p></p>
-                <ul>
-                  <li>Designed and implemented .NET applications, APIs, integration components, automation workflows, and relational data solutions using cloud-ready architectural patterns.</li>
-                  <li>Built repeatable, containerized development and runtime environments using Docker, environment-driven configuration, and documented deployment processes.</li>
-                  <li>Developed reporting and data-processing workflows, including A.I.-assisted automation intended to reduce repetitive manual work.</li>
-                  <li>Designed, built, and maintain the public Et al Solutions technology platform, demonstrating modern web architecture, API integration, automated deployment, and technical content delivery.  www.etal.solutions</li>
-                  <li>Defined and documented technical governance standards covering reproducible environments, 12-factor configuration, platform-managed secrets, CI and testing discipline, runtime portability, and service classification.</li>
-                </ul>
-          </div>
-          <div class="card">
-            <h3>Independent Technical Projects and Platform Engineering</h3>
-            <p></p>
-                <ul>
-                  <li>Designed a vendor API consumer that reduced repetitive object pulls, prevented data loss, and supported replayable ingestion for recovery and auditability.</li>
-                  <li>Introduced a multi-tenant integration and reporting layer across vendor, operational, and reporting data.</li>
-                  <li>Implemented SharePoint Online caching patterns and performance-tuned SQL query shapes for large-scale reporting and integration workloads.</li>
-                  <li>Improved processing latency from 24+ hours to near real-time.</li>
-                </ul>
-          </div>
+          <article class="job">
+            <div class="dates">2015 – 2024</div>
+            <div>
+              <h3>Project Consulting Services, Inc. (via TEKsystems) <span>— Senior Consultant</span></h3>
+              <ul>
+                <li>Built middleware integrating multiple vendor platforms with a SQL-based data warehouse.</li>
+                <li>Designed a vendor API consumer that reduced repetitive object pulls, prevented data loss, and supported replayable ingestion for recovery and auditability.</li>
+                <li>Introduced a multi-tenant integration and reporting layer across vendor, operational, and reporting data.</li>
+                <li>Implemented SharePoint Online caching patterns and performance-tuned SQL query shapes for large-scale reporting and integration workloads.</li>
+                <li>Improved processing latency from 24+ hours to near real-time.</li>
+              </ul>
+            </div>
+          </article>
+
+        <article class="job">
+            <div class="dates">2014 – 2015</div>
+            <div>
+              <h3>Independent Consultant</h3>
+              <ul>
+                <li>Delivered custom .NET/MVC and browser-based applications using HTML5, CSS3, JavaScript, and SQL-backed application patterns.</li>
+                <li>Built responsive UI, database-driven workflows, reporting views, and analytics outputs for small business and enterprise use cases.</li>
+                <li>Supported legacy modernization by integrating older systems with web applications, relational databases, APIs, and middleware-style data flows.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="dates">2004 – 2014</div>
+            <div>
+              <h3>Steton Technology Group <span>— Lead Architect</span></h3>
+              <ul>
+                <li>Led development and operation of a multi-tenant QA auditing SaaS platform supporting thousands of users.</li>
+                <li>Delivered HTML5 cross-platform mobile data collection capabilities for distributed field and audit workflows.</li>
+                <li>Built a logical data warehouse/reporting layer over the transactional database to support reporting without introducing additional reporting infrastructure.</li>
+                <li>Led cloud platform initiatives in Azure and AWS to improve scalability, availability, and reliability.</li>
+              </ul>
+            </div>
+          </article>
+
+<!--          <article class="job">
+            <div class="dates">2002 – 2003</div>
+            <div>
+              <h3>SeeBeyond <span>— Senior Consultant</span></h3>
+              <ul>
+                <li>Delivered enterprise integration solutions across healthcare, government, and commercial environments.</li>
+                <li>Built and supported 400+ interfaces across distributed applications.</li>
+                <li>Implemented secure standards-based integrations including HL7 in regulated settings.</li>
+                <li>Designed message-level configuration propagation so runtime behavior could travel with the message instead of being hard-coded into each interface.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="dates">2001 – 2002</div>
+            <div>
+              <h3>Computer Sciences Corporation <span>— Senior Consultant</span></h3>
+              <ul>
+                <li>Designed and implemented SAP integration components.</li>
+                <li>Contributed integration architecture guidance for NASA’s IFMP SAP program.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="dates">1999 – 2001</div>
+            <div>
+              <h3>Fluor Corporation <span>— EAI Team Lead</span></h3>
+              <ul>
+                <li>Led legacy-to-SAP integration initiatives using message-based architectures.</li>
+                <li>Evaluated and implemented enterprise messaging technologies including IBM MQSeries.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="dates">1985 – 1999</div>
+            <div>
+              <h3>PM Realty Group and Earlier Career <span>— Systems Administration & Internal Business Systems Development</span></h3>
+              <ul>
+                <li>Began in systems administration and technical support, supporting users, infrastructure, and business-critical operational systems.</li>
+                <li>Created a web-based purchasing and accounts payable system supporting internal purchasing workflows, vendor purchase order access, and delivery coordination.</li>
+                <li>Designed and built internal systems for purchasing, order fulfillment, and member management workflows.</li>
+                <li>Developed a practical foundation in business operations, workflow automation, data management, and enterprise technology delivery.</li>
+              </ul>
+            </div>
+          </article> -->
         </div>
       </div>
     </section>
-<!-- /PM:COLLECTION-EXPERIENCE -->
+
     <section id="skills">
       <div class="wrap">
         <h2>Core skills</h2>
@@ -367,5 +449,6 @@ and <span class="brand-ref">Steton</span>.
 
 <!-- PM:COLLECTION-SCRIPTS -->
 <!-- /PM:COLLECTION-SCRIPTS -->
+<script data-pm-build-info-script="" src="/assets/pm-build-info.js?v=028" type="module"></script>
 </body>
 </html>

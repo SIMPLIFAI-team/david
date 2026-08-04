@@ -2,10 +2,11 @@
   "artifactSha256": "7c11d4364df4e1a52a062a889277e98e7666b51ecddbf41a68c32aaaf31562b1",
   "buildId": "dev-07e660fa82c1-dirty",
   "buildNumber": "027",
-  "builder": "Et al Solutions LLC",
-  "builtAt": "2026-08-04T14:42:41Z",
-  "officialBuild": false,
+  "deployedAt": "2026-08-04T14:42:41Z",
+  "deploymentId": "david-1774401935",
+  "environment": "dev",
+  "releaseVersion": null,
   "schemaVersion": 1,
   "sourceCommit": "07e660fa82c157c153289793152b935f79e302ff",
-  "sourceDirty": true
+  "verification": "verified"
 }

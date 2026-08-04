@@ -1,0 +1,440 @@
+{
+  "algorithm": "sha256",
+  "artifactSha256": "c8a4b7ca53f38d8eb451e45a4a8ae769fde2fe70968aa541d5e051d3a81a8f5a",
+  "files": [
+    {
+      "mode": "0644",
+      "path": ".env",
+      "sha256": "4897549364e030fa74d7a6f0da922f055df7184d4c5f0f2b52187163a3064994",
+      "size": 987
+    },
+    {
+      "mode": "0644",
+      "path": ".nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "mode": "0644",
+      "path": "404.html",
+      "sha256": "a57867d4014e047424a4c9cda07c2defbf7a9207e1c890bd1da293baa26692ff",
+      "size": 5954
+    },
+    {
+      "mode": "0644",
+      "path": "CNAME",
+      "sha256": "ce3681a5aed9cb125a62e2fcee84da7c02687517716f9f711fa7444f9cfbf402",
+      "size": 21
+    },
+    {
+      "mode": "0644",
+      "path": "assets/css/case-study.css",
+      "sha256": "2775e4e02a6bca269e77ae41b931cb5aa6b031deb1b9508b3e0bc8f39953f497",
+      "size": 22899
+    },
+    {
+      "mode": "0644",
+      "path": "assets/css/cookie-consent-overrides.css",
+      "sha256": "71d92e8c9a363d5872544dc15636467e3bf1deab0013d35614c1ac4e4c702bc3",
+      "size": 379
+    },
+    {
+      "mode": "0644",
+      "path": "assets/css/experience.css",
+      "sha256": "c98eacb0f9e4ec3ee08d656ffd2510176479506ea19fbd921a01f078bb6e8b78",
+      "size": 5506
+    },
+    {
+      "mode": "0644",
+      "path": "assets/css/styles.css",
+      "sha256": "ce3ce5581ee69dea9f44ddceaf0249481eeb3de97d7d695e7fdae10a8eb092ac",
+      "size": 11041
+    },
+    {
+      "mode": "0644",
+      "path": "assets/pm-build-info.css",
+      "sha256": "1277694c3c85d4cc8d91838f7a6e5179e3591443c04808795945340f3552cb1a",
+      "size": 4106
+    },
+    {
+      "mode": "0644",
+      "path": "assets/pm-build-info.js",
+      "sha256": "5bda60086c42cd56f83275fc89545dba80e01d89a8434e0eedbff50924733576",
+      "size": 13250
+    },
+    {
+      "mode": "0644",
+      "path": "assets/pm-web-analytics.css",
+      "sha256": "9316cd32e9b308d94aa03d751b71a99f78737d244e70a8269ceded7ce9a7df43",
+      "size": 4846
+    },
+    {
+      "mode": "0644",
+      "path": "assets/pm-web-analytics.js",
+      "sha256": "2f895aaddd4555ea3bba72fd50c4c63dd93597ec27f49aff877739ef167135ea",
+      "size": 12822
+    },
+    {
+      "mode": "0644",
+      "path": "case-studies/corporate-website-and-portmason-platform-experience.html",
+      "sha256": "8688ab8c18ab1faa2a4e9e1ee00ab0734752de977c6d908cf9a5730c02ee5843",
+      "size": 15796
+    },
+    {
+      "mode": "0644",
+      "path": "case-studies/message-driven-enterprise-integration.html",
+      "sha256": "dc1003254c45b131633e4ca3502a1a5205edb98dc0b3f58cd0eaff56f0cb8ff8",
+      "size": 13070
+    },
+    {
+      "mode": "0644",
+      "path": "case-studies/multi-tenant-qa-auditing-mobile-data-collection.html",
+      "sha256": "ad8a6a133df76d4280bd08f968a44995d0219efdc29f6a6515ca59d2c8493e4b",
+      "size": 12055
+    },
+    {
+      "mode": "0644",
+      "path": "case-studies/replayable-vendor-api-ingestion-reporting-layer.html",
+      "sha256": "4b13cec7ee92084e6d0a6d0ecfcdc6c530ff53042d110ac48cfb3e002a3d81df",
+      "size": 12140
+    },
+    {
+      "mode": "0644",
+      "path": "case-studies/web-based-purchasing-accounts-payable-system.html",
+      "sha256": "386db0e7c4754d0c355493ec480b4760cca7cef859699f1531127e6f591ccbab",
+      "size": 11885
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/case-study-item.schema.json",
+      "sha256": "95058d6f755ffa37d1bf64df9287bde84692915fe173699f480a5d346463cc1c",
+      "size": 623
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/catalog-item.schema.json",
+      "sha256": "615d7388930629ec068b1f092ff9911ae4a51574b1d1f1867017c9c108df4ae9",
+      "size": 2561
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/collection.css",
+      "sha256": "ec767c62a6429f2fdfed4f1b7beb9f94f9ca69a0aab90de6ac7f27f3d47ee0f4",
+      "size": 12740
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/collection.js",
+      "sha256": "2ad8089dbe701c57fb582f56f303df70c7ba72e9220481f496d0502750934490",
+      "size": 6152
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/collection.schema.json",
+      "sha256": "a4dc63d4409b3b3aadab647607ba52ad8845dd4912e1f0553fa98e3fdc61fd0b",
+      "size": 9037
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/experience-item.schema.json",
+      "sha256": "fbde48474da8550301573b8cea7ec349106ec3bf4338ff2100207f93d3a48e7b",
+      "size": 432
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/item-base.schema.json",
+      "sha256": "24563485bc5c4989f44dee1f1d1933180b01e351f765605c3cf6d94f62a3ee6c",
+      "size": 575
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/profiles/catalog.js",
+      "sha256": "ff4a30363a6692277e2fb0d48a7b6e83a98277d838ba6f555e64345c365bfc15",
+      "size": 39326
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/profiles/publication.js",
+      "sha256": "7dae671fa2131187d014cd1f2ba78301f9d478d00f11bca3b380e8f0f4940a9f",
+      "size": 7523
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/profiles/workspace.js",
+      "sha256": "08fee560787898e85246f48d37a39915d64e69635e043724ea3bd894fc0ac5d3",
+      "size": 9014
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/publication-item.schema.json",
+      "sha256": "7ca4383a8749dbd6c398a0f013fa6d4600b386c675cebf640df9632665f03bd5",
+      "size": 723
+    },
+    {
+      "mode": "0755",
+      "path": "collections/_system/render-collection",
+      "sha256": "048acba3589c5d1f72884b42115820d8f3454eb071c47fc91a3db103e7e88a8b",
+      "size": 33096
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/resume-item.schema.json",
+      "sha256": "af1ab8c6c0e276de7cbcfebad3f03e5aa9a63e9ceff4513defae11844d1b44ec",
+      "size": 564
+    },
+    {
+      "mode": "0644",
+      "path": "collections/_system/workspace-item.schema.json",
+      "sha256": "65466c7404c2503d8513fcfc22b0630624dea895f32edb2ab232d7e29bb617e8",
+      "size": 3204
+    },
+    {
+      "mode": "0644",
+      "path": "collections/case-studies/collection.json",
+      "sha256": "8d8f7ddbbad18e675bdeb89f823643778f2d2a81a5434c690ae50324eb14d53b",
+      "size": 946
+    },
+    {
+      "mode": "0644",
+      "path": "collections/case-studies/items.json",
+      "sha256": "346fc965e459bed83d2cfb2d5a81c62ad72bae6185b9f760eef7d65769efb3e3",
+      "size": 4856
+    },
+    {
+      "mode": "0644",
+      "path": "collections/case-studies/styles.css",
+      "sha256": "a940cc74bb1070a3738f26803778faca367b825884694746798f065a16c34f8f",
+      "size": 92
+    },
+    {
+      "mode": "0644",
+      "path": "collections/experience/collection.json",
+      "sha256": "63730f8e7d94f3e601f1895240b8746b846b3614284fbf982bb1997ece7e99d6",
+      "size": 757
+    },
+    {
+      "mode": "0644",
+      "path": "collections/experience/items.json",
+      "sha256": "ca4040d982cc85caf3faf4f671989f4bad91bdece6f3feb1a9e79992232f8455",
+      "size": 2051
+    },
+    {
+      "mode": "0644",
+      "path": "collections/experience/styles.css",
+      "sha256": "a940cc74bb1070a3738f26803778faca367b825884694746798f065a16c34f8f",
+      "size": 92
+    },
+    {
+      "mode": "0644",
+      "path": "collections/resumes/collection.json",
+      "sha256": "0426e86dac0c3e2a51a8a34b773d7eb0f98c3424a98f9c7dc4a1216d41346b0a",
+      "size": 642
+    },
+    {
+      "mode": "0644",
+      "path": "collections/resumes/items.json",
+      "sha256": "453bfde352acc2e90ab58c6e69837f2c6243105c04b822da3759e269e802481d",
+      "size": 2940
+    },
+    {
+      "mode": "0644",
+      "path": "collections/resumes/styles.css",
+      "sha256": "b846eecc49116e48ec388587d15366fbfb3df597c2d1760e4346c80c04d41ef0",
+      "size": 90
+    },
+    {
+      "mode": "0644",
+      "path": "config.generated.json",
+      "sha256": "73aeb10e0c0fec0099c143443b5068bd02da19698e625aedde98ab521e1e073d",
+      "size": 1163
+    },
+    {
+      "mode": "0644",
+      "path": "config.public.json",
+      "sha256": "b31fa3803714025df533e0c138c68310962bdf3a0c39f5f315e1b3a5a3c6bbe6",
+      "size": 323
+    },
+    {
+      "mode": "0644",
+      "path": "favicon.ico",
+      "sha256": "e8bcc8c4186a76a06fb4344da59d3bdd7cf7d9c931e2f5e87dd93615c7910a28",
+      "size": 15406
+    },
+    {
+      "mode": "0644",
+      "path": "index.html",
+      "sha256": "e66ef13a1292c31cb7a1b806ac758caa4237cab02cd6cbfdac7041a42b945999",
+      "size": 24145
+    },
+    {
+      "mode": "0644",
+      "path": "logs/.env",
+      "sha256": "4897549364e030fa74d7a6f0da922f055df7184d4c5f0f2b52187163a3064994",
+      "size": 987
+    },
+    {
+      "mode": "0644",
+      "path": "logs/logs/pm-setup.log",
+      "sha256": "a188bd92369b90b0460a7664097dbbcb831fe61c9fb9d2da13a8beb325f6d7e6",
+      "size": 377
+    },
+    {
+      "mode": "0644",
+      "path": "logs/pm-setup.log",
+      "sha256": "b3ce3f5bfb254e1ca02d7ee2e5329fdfd1836eaf813355e1fc688f1966c70ed6",
+      "size": 372
+    },
+    {
+      "mode": "0644",
+      "path": "logs/pm-setup.log_archive",
+      "sha256": "7a99856a296bba3811dfdc67a1031fc57157c8deeac6a62a69deb0c0618471cc",
+      "size": 372
+    },
+    {
+      "mode": "0644",
+      "path": "partials/case-header.html",
+      "sha256": "2bec3112345dd0d7cdb8c90125ab9b9a960526c1611f44ddfbaf4ad481850281",
+      "size": 665
+    },
+    {
+      "mode": "0644",
+      "path": "partials/experience.html",
+      "sha256": "2bec3112345dd0d7cdb8c90125ab9b9a960526c1611f44ddfbaf4ad481850281",
+      "size": 665
+    },
+    {
+      "mode": "0644",
+      "path": "partials/footer.html",
+      "sha256": "c0d04081884022003fad2877590dd6f77d6f1a8d0ffd9b31f7aeb8a76dab8193",
+      "size": 286
+    },
+    {
+      "mode": "0644",
+      "path": "partials/home-header.html",
+      "sha256": "1cdb90def68c0b97979906cb4ebbcefdf951ef44895767797704126fcca0d8f5",
+      "size": 619
+    },
+    {
+      "mode": "0755",
+      "path": "partials/hooks/collection-case-studies",
+      "sha256": "62111fd9d860f920a1bef521082fcada992eb66e39acc7e5aed00174e990acb5",
+      "size": 102
+    },
+    {
+      "mode": "0755",
+      "path": "partials/hooks/collection-experience",
+      "sha256": "8ad54f9926c729b4312142f53bdd01fe86164dcf4c6c3e24f57775582c0a6c09",
+      "size": 100
+    },
+    {
+      "mode": "0755",
+      "path": "partials/hooks/collection-resumes",
+      "sha256": "1dcd35ab35a22d01a2cf01962fbc8ad2d9b3eb2621d13649154fb2699c8d6ad3",
+      "size": 97
+    },
+    {
+      "mode": "0755",
+      "path": "partials/hooks/collection-scripts",
+      "sha256": "65dd3811a3ef66f8539a5217fe5acf4115d24a88d80716929a7a11b33855d69d",
+      "size": 97
+    },
+    {
+      "mode": "0755",
+      "path": "partials/hooks/collection-styles",
+      "sha256": "fa80b48c04773135ccf6c6cb29165c0c0ac8ffc183db12555a4e6b11ea41a151",
+      "size": 96
+    },
+    {
+      "mode": "0644",
+      "path": "partials/tracking-consent.html",
+      "sha256": "4c7d2b27231369674e8f87fcd3c8f2c9375e5f8bc0cdcba53062e43520f0618e",
+      "size": 254
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/IT_Networking_resume.docx",
+      "sha256": "f961b4be9d63f5cd75ccf4019ff0eeaca8337e141d4ae6bf224ab7d389f19960",
+      "size": 28564
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/IT_Networking_resume.pdf",
+      "sha256": "c9dd0da00a9aec58c84aff3317a253840adc30d291212afa08e77788fa0f0353",
+      "size": 132205
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/SaaS_resume.docx",
+      "sha256": "b3cbc1f38550e8836633e12be201214c13145b088f833dface9d28edfc0e6ef6",
+      "size": 29216
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/SaaS_resume.pdf",
+      "sha256": "669c04e26f320c6fac4d97ed4da489ccab74fb9451332c30933c74f469e960de",
+      "size": 139421
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/cloud_architect.docx",
+      "sha256": "c3f295aaaa3ff56e309cac998fad9a145fdd84dbe995aaae3b7cbe1b983e3c39",
+      "size": 28478
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/cloud_architect.pdf",
+      "sha256": "7fe3ecee1478812bb97fca2b0e6ac85a152223e1c652ec30ae268955af6abc28",
+      "size": 216731
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/dba_resume.docx",
+      "sha256": "b3e120a438cf1af1d67b9887c21192329761b9f7f7ab8f30da29508bd067d73a",
+      "size": 2025720
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/dba_resume.pdf",
+      "sha256": "6fd2bd34dba5865a2c80097eeefb93e87c524c0af345b40be5404ffa92bddf12",
+      "size": 89640
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/middleware_resume.docx",
+      "sha256": "062f15622f44f7a126c0ccfc36c8046e1f646363abeebd21ec4768b035c23ad4",
+      "size": 28957
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/middleware_resume.pdf",
+      "sha256": "782684c5bef592cbfa08f785d21d8d480d8988fe954a02883741754724286559",
+      "size": 98796
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/web_developer_resume.docx",
+      "sha256": "dc45d04af832d42cff5e7ecee87e55e987471862946c95e69f8dc460ebaf9814",
+      "size": 33240
+    },
+    {
+      "mode": "0644",
+      "path": "resumes/web_developer_resume.pdf",
+      "sha256": "67e1468a607abce99001b7ed2d48fa7c8048db63ad6c48bf6355c60168bde102",
+      "size": 121224
+    },
+    {
+      "mode": "0644",
+      "path": "robots.txt",
+      "sha256": "1ed1caebc3d96e7f37393537277d42301053f570faa0260661dc3b9e7795b56c",
+      "size": 235
+    },
+    {
+      "mode": "0644",
+      "path": "sitemap.xml",
+      "sha256": "311a301ee7b2b56bb0f6163de6cbd7c39400b194f8c13b911a7b9c9ebab824ee",
+      "size": 693
+    }
+  ],
+  "schemaVersion": 1,
+  "scope": "All served files except build-info.json, deploy-info.json, and artifact-manifest.json, plus canonical build identity."
+}
