@@ -1,6 +1,6 @@
 {
   "algorithm": "sha256",
-  "artifactSha256": "c8a4b7ca53f38d8eb451e45a4a8ae769fde2fe70968aa541d5e051d3a81a8f5a",
+  "artifactSha256": "b39a413367b03950d19c0be107d31dd9a18f2ca36cc72b8bed299a355d88beb5",
   "files": [
     {
       "mode": "0644",
@@ -17,7 +17,7 @@
     {
       "mode": "0644",
       "path": "404.html",
-      "sha256": "a57867d4014e047424a4c9cda07c2defbf7a9207e1c890bd1da293baa26692ff",
+      "sha256": "5d6d1876b2bb8b3b0e1dc1fe47758918b56ed4391b64da8a5255cbf283231730",
       "size": 5954
     },
     {
@@ -77,31 +77,31 @@
     {
       "mode": "0644",
       "path": "case-studies/corporate-website-and-portmason-platform-experience.html",
-      "sha256": "8688ab8c18ab1faa2a4e9e1ee00ab0734752de977c6d908cf9a5730c02ee5843",
+      "sha256": "b788898d189052d41533e149da98fa31fdc806946456e2bdf912d597813652be",
       "size": 15796
     },
     {
       "mode": "0644",
       "path": "case-studies/message-driven-enterprise-integration.html",
-      "sha256": "dc1003254c45b131633e4ca3502a1a5205edb98dc0b3f58cd0eaff56f0cb8ff8",
+      "sha256": "f70de94ddd467762589d9fe777df0c6d4d21c2f713c46a7f40decc4ab3339ea6",
       "size": 13070
     },
     {
       "mode": "0644",
       "path": "case-studies/multi-tenant-qa-auditing-mobile-data-collection.html",
-      "sha256": "ad8a6a133df76d4280bd08f968a44995d0219efdc29f6a6515ca59d2c8493e4b",
+      "sha256": "e3c14e4005ab540fb1a5e4b56ff8b59833db6f73efcb4779cb91dde1c57100d0",
       "size": 12055
     },
     {
       "mode": "0644",
       "path": "case-studies/replayable-vendor-api-ingestion-reporting-layer.html",
-      "sha256": "4b13cec7ee92084e6d0a6d0ecfcdc6c530ff53042d110ac48cfb3e002a3d81df",
+      "sha256": "76ebab3353d36add1fc0cba2f725695e7adc60524a611f1436252bc1d9deb44c",
       "size": 12140
     },
     {
       "mode": "0644",
       "path": "case-studies/web-based-purchasing-accounts-payable-system.html",
-      "sha256": "386db0e7c4754d0c355493ec480b4760cca7cef859699f1531127e6f591ccbab",
+      "sha256": "4c62bfecc1b6005cf4a63496bb60addccb71dfdb9b0208c00ce8d62481a03ca3",
       "size": 11885
     },
     {
@@ -263,7 +263,7 @@
     {
       "mode": "0644",
       "path": "index.html",
-      "sha256": "e66ef13a1292c31cb7a1b806ac758caa4237cab02cd6cbfdac7041a42b945999",
+      "sha256": "796e35632d858acf659fc617b822d02223043d9aa6c94978c7e606b2581a9ab9",
       "size": 24145
     },
     {
@@ -347,7 +347,7 @@
     {
       "mode": "0644",
       "path": "partials/tracking-consent.html",
-      "sha256": "4c7d2b27231369674e8f87fcd3c8f2c9375e5f8bc0cdcba53062e43520f0618e",
+      "sha256": "dbd56b39ccc1bada207159889e5ba27f95fe0dcfdd8c5abc92fe3588f90ab7da",
       "size": 254
     },
     {
