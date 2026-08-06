@@ -4,9 +4,9 @@
   "DEPLOYMENT_ID": "david-1774401935",
   "APP_SLUG": "david",
   "DEPLOY_ENV": "prd",
-  "APP_HOST": "david.simplifai.team",
-  "APP_URL": "https://david.simplifai.team",
-  "SITE_URL": "https://david.simplifai.team",
+  "APP_HOST": "david.solutionsetal.com",
+  "APP_URL": "https://david.solutionsetal.com",
+  "SITE_URL": "https://david.solutionsetal.com",
   "URI_SCHEME": "https:",
   "LOG_FORMAT": "text"
 }
